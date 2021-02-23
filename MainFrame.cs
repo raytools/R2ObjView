@@ -3,9 +3,8 @@ using System.Windows.Forms;
 
 namespace R2ObjView
 {
-    public partial class MainFrame : Form
+    public partial class MainFrame : Form, IMainFrame
     {
-        private WorldForm worldForm;
 
         private string _statusText;
 
@@ -25,11 +24,21 @@ namespace R2ObjView
             }
         }
 
+        private WorldForm worldForm;
+
         public MainFrame()
         {
             InitializeComponent();
             Icon = Resources.glidetect;
             StatusText = "Ready.";
+        }
+
+        public void SetStatus(IChildFrame child, string status)
+        {
+            if (child == ActiveMdiChild)
+            {
+                statusLine.Text = status;
+            }
         }
 
         private void ShowChild(Form form)
@@ -126,7 +135,7 @@ namespace R2ObjView
         {
             if (worldForm == null)
             {
-                worldForm = new WorldForm();
+                worldForm = new WorldForm(this);
                 worldForm.FormClosed += WorldFormClosed;
 
                 ShowChild(worldForm);

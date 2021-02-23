@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.worldTree = new System.Windows.Forms.TreeView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.spoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.fmiToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.ShowItemToolTips = false;
-            this.toolStrip.Size = new System.Drawing.Size(89, 25);
+            this.toolStrip.Size = new System.Drawing.Size(58, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "toolStrip1";
             this.toolStrip.Visible = false;
@@ -67,6 +69,7 @@
             this.spoToolStripButton.Name = "spoToolStripButton";
             this.spoToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.spoToolStripButton.Text = "Superobject";
+            this.spoToolStripButton.Click += new System.EventHandler(this.spoToolStripButton_Click);
             // 
             // fmiToolStripButton
             // 
@@ -79,6 +82,12 @@
             this.fmiToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.fmiToolStripButton.Text = "FMI";
             this.fmiToolStripButton.CheckedChanged += new System.EventHandler(this.fmiToolStripButton_CheckedChanged);
+            // 
+            // refreshTimer
+            // 
+            this.refreshTimer.Enabled = true;
+            this.refreshTimer.Interval = 1000;
+            this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
             // 
             // WorldForm
             // 
@@ -102,5 +111,6 @@
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton spoToolStripButton;
         private System.Windows.Forms.ToolStripButton fmiToolStripButton;
+        private System.Windows.Forms.Timer refreshTimer;
     }
 }

@@ -1,18 +1,31 @@
 ﻿using System.Runtime.InteropServices;
+using Ray2Mod.Game.Structs;
 using Ray2Mod.Game.Structs.SPO;
 
 namespace R2ObjView
 {
     public static unsafe class Acp
     {
+        #region HIE
+
+        public delegate void XHIE_tdfnEnumSpoCallback(SuperObject* p_stSpo);
+
         [DllImport("ACP_Ray2.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern string XHIE_fn_szGetObjectName(SuperObject* p_stSpo, XHIE_OI_TYPE ulInfoType);
 
         [DllImport("ACP_Ray2.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern int XHIE_fn_lEnumSpoChildren(SuperObject* p_stSpo, XHIE_tdfnEnumSpoCallback p_fnCallback);
 
+        #endregion
 
-        public delegate void XHIE_tdfnEnumSpoCallback(SuperObject* p_stSpo);
+        #region AI
+
+        public delegate void AI_tdfnEnumDsgVarCallback(DsgVarType ulType, void* p_CurrentValue, void* p_InitialValue);
+
+        [DllImport("ACP_Ray2.dll", CallingConvention = CallingConvention.Cdecl)]
+        public static extern int AI_fn_lEnumSpoDsgVars(SuperObject* p_stSpo, AI_tdfnEnumDsgVarCallback p_fnCallback);
+
+        #endregion
 
         public enum XHIE_OI_TYPE
         {
