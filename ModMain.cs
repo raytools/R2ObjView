@@ -24,7 +24,7 @@ namespace R2ObjView
 
             //Application.VisualStyleState = VisualStyleState.NoneEnabled;
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrame());
+            Application.Run(MainFrame.Instance);
         }
     }
 }

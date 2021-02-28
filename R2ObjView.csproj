@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="Acp.cs" />
     <Compile Include="IChildFrame.cs" />
-    <Compile Include="IMainFrame.cs" />
     <Compile Include="MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +65,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="IconManager.cs" />
+    <Compile Include="SpoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SpoForm.Designer.cs">
+      <DependentUpon>SpoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorldForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +85,9 @@
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SpoForm.resx">
+      <DependentUpon>SpoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorldForm.resx">
       <DependentUpon>WorldForm.cs</DependentUpon>

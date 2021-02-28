@@ -54,7 +54,7 @@
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.ShowItemToolTips = false;
-            this.toolStrip.Size = new System.Drawing.Size(58, 25);
+            this.toolStrip.Size = new System.Drawing.Size(89, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "toolStrip1";
             this.toolStrip.Visible = false;
@@ -94,8 +94,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
-            this.Controls.Add(this.worldTree);
             this.Controls.Add(this.toolStrip);
+            this.Controls.Add(this.worldTree);
             this.Name = "WorldForm";
             this.Text = "World Structure";
             this.toolStrip.ResumeLayout(false);

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.Reflection;
 using System.Windows.Forms;
 using Ray2Mod.Components.Types;
 using Ray2Mod.Game;
@@ -17,7 +15,6 @@ namespace R2ObjView
         private TreeNode inactiveWorld;
         private TreeNode fatherSector;
 
-        public IMainFrame MainFrame { get; set; }
         public string ChildStatusText { get; private set; }
         public ToolStrip ChildToolStrip => toolStrip;
 
@@ -25,10 +22,8 @@ namespace R2ObjView
 
         private Dictionary<string, ObjectNode> objectNodeMap = new Dictionary<string, ObjectNode>();
 
-        public WorldForm(IMainFrame mainFrame)
+        public WorldForm()
         {
-            MainFrame = mainFrame;
-
             InitializeComponent();
             Icon = Resources.IconWorld;
             worldTree.ImageList = IconManager.Icons;
@@ -82,7 +77,7 @@ namespace R2ObjView
             }
 
             ChildStatusText = $"Active: {nActive} objects, Inactive: {nInactive} objects, Sectors: {nSectors} objects.";
-            MainFrame.SetStatus(this, ChildStatusText);
+            MainFrame.Instance.SetStatus(this, ChildStatusText);
         }
 
         private Acp.XHIE_tdfnEnumSpoCallback GetEnumGroupedSpoCallback(TreeNode parentNode)
@@ -191,6 +186,13 @@ namespace R2ObjView
 
             if (node.Tag is Pointer<SuperObject> spo)
             {
+                SpoForm form = new SpoForm(spo);
+                MainFrame.Instance.ShowChild(form);
+
+                return;
+
+                // TODO: fix DsgVar enumeration crash
+
                 Acp.AI_fn_lEnumSpoDsgVars(spo, (type, value, initialValue) =>
                 {
                     string sValue = "";
@@ -236,7 +238,7 @@ namespace R2ObjView
                             break;
                     }
 
-                    // TODO: superobject details form
+                    // TODO: dsgvar details tab in SpoForm
                     Debug.WriteLine($"Type: {type}, Value: {sValue}, InitValue: {sInitValue}");
                 });
             }

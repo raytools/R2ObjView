@@ -3,11 +3,12 @@ using System.Windows.Forms;
 
 namespace R2ObjView
 {
-    public partial class MainFrame : Form, IMainFrame
+    public sealed partial class MainFrame : Form
     {
+        private static MainFrame _instance;
+        public static MainFrame Instance => _instance ?? (_instance = new MainFrame());
 
         private string _statusText;
-
         public string StatusText
         {
             get
@@ -26,7 +27,7 @@ namespace R2ObjView
 
         private WorldForm worldForm;
 
-        public MainFrame()
+        private MainFrame()
         {
             InitializeComponent();
             Icon = Resources.glidetect;
@@ -41,15 +42,10 @@ namespace R2ObjView
             }
         }
 
-        private void ShowChild(Form form)
+        public void ShowChild(Form form)
         {
             form.MdiParent = this;
             form.Show();
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         #region View menu
@@ -131,11 +127,16 @@ namespace R2ObjView
 
         #endregion
 
+        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void WorldItemClick(object sender, EventArgs e)
         {
             if (worldForm == null)
             {
-                worldForm = new WorldForm(this);
+                worldForm = new WorldForm();
                 worldForm.FormClosed += WorldFormClosed;
 
                 ShowChild(worldForm);
@@ -161,7 +162,7 @@ namespace R2ObjView
             statusLine.Text = StatusText;
             ToolStripManager.RevertMerge(toolStrip);
 
-            if (ActiveMdiChild is IChildFrame child)
+            if (ActiveMdiChild is IChildFrame child && child.ChildToolStrip != null)
             {
                 ToolStripManager.Merge(child.ChildToolStrip, toolStrip);
             }
