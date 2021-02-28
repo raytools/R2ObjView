@@ -1,5 +1,9 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
+using Ray2Mod.Components;
+using Ray2Mod.Game;
+using Ray2Mod.Game.Functions;
 
 namespace R2ObjView
 {
@@ -8,12 +12,18 @@ namespace R2ObjView
         private static MainFrame _instance;
         public static MainFrame Instance => _instance ?? (_instance = new MainFrame());
 
+        public event Action RefreshData;
+        public event Action<string> LevelChanged;
+
+        private string previousLevelName;
+        private string levelName;
+
         private string _statusText;
         public string StatusText
         {
             get
             {
-                if (ActiveMdiChild is IChildFrame child && !string.IsNullOrEmpty(child.ChildStatusText))
+                if (ActiveMdiChild is ChildFrame child && !string.IsNullOrEmpty(child.ChildStatusText))
                     return child.ChildStatusText;
 
                 return _statusText;
@@ -32,9 +42,15 @@ namespace R2ObjView
             InitializeComponent();
             Icon = Resources.glidetect;
             StatusText = "Ready.";
+
+            // HACK: quick fix for VS designer crash
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
+
+            autoRefreshToolStripMenuItem.Checked = true;
+            refreshTimer.Enabled = true;
         }
 
-        public void SetStatus(IChildFrame child, string status)
+        public void SetStatus(ChildFrame child, string status)
         {
             if (child == ActiveMdiChild)
             {
@@ -162,10 +178,27 @@ namespace R2ObjView
             statusLine.Text = StatusText;
             ToolStripManager.RevertMerge(toolStrip);
 
-            if (ActiveMdiChild is IChildFrame child && child.ChildToolStrip != null)
+            if (ActiveMdiChild is ChildFrame child && child.ChildToolStrip != null)
             {
                 ToolStripManager.Merge(child.ChildToolStrip, toolStrip);
             }
+        }
+
+        private void autoRefreshToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            refreshTimer.Enabled = autoRefreshToolStripMenuItem.Checked;
+        }
+
+        private void refreshTimer_Tick(object sender, EventArgs e)
+        {
+            levelName = EngineFunctions.GetCurrentLevelName.Call();
+            if (levelName != previousLevelName)
+            {
+                LevelChanged?.Invoke(levelName);
+                previousLevelName = levelName;
+            }
+
+            RefreshData?.Invoke();
         }
     }
 }

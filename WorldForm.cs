@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using Ray2Mod.Components.Types;
 using Ray2Mod.Game;
@@ -9,14 +10,13 @@ using Ray2Mod.Game.Structs.SPO;
 
 namespace R2ObjView
 {
-    public unsafe partial class WorldForm : Form, IChildFrame
+    public unsafe partial class WorldForm : ChildFrame
     {
         private TreeNode activeWorld;
         private TreeNode inactiveWorld;
         private TreeNode fatherSector;
 
-        public string ChildStatusText { get; private set; }
-        public ToolStrip ChildToolStrip => toolStrip;
+        public override ToolStrip ChildToolStrip => toolStrip;
 
         private bool GroupSpo => fmiToolStripButton.Checked;
 
@@ -29,6 +29,11 @@ namespace R2ObjView
             worldTree.ImageList = IconManager.Icons;
 
             InitWorldTree();
+        }
+
+        protected override void RefreshData()
+        {
+            UpdateWorldTree();
         }
 
         private delegate Acp.XHIE_tdfnEnumSpoCallback GetCallbackDelegate(TreeNode parentNode);
@@ -68,12 +73,12 @@ namespace R2ObjView
                 getCallbackMethod(inactiveWorld));
             int nSectors = Acp.XHIE_fn_lEnumSpoChildren(*(SuperObject**)Offsets.FatherSector, EnumSectorCallback);
 
-            foreach (KeyValuePair<string, ObjectNode> kv in objectNodeMap)
+            KeyValuePair<string, ObjectNode>[] toRemove = objectNodeMap.Where(kv => kv.Value.Invalidated).ToArray();
+            foreach (KeyValuePair<string, ObjectNode> kv in toRemove)
             {
-                if (kv.Value.Invalidated)
-                {
-                    kv.Value.Node.Remove();
-                }
+                // delete invalidated nodes from treeview and node map
+                kv.Value.Node.Remove();
+                objectNodeMap.Remove(kv.Key);
             }
 
             ChildStatusText = $"Active: {nActive} objects, Inactive: {nInactive} objects, Sectors: {nSectors} objects.";
@@ -100,6 +105,8 @@ namespace R2ObjView
                     }
                     else
                     {
+                        // update reference just in case
+                        objNode.Node.Tag = (Pointer<SuperObject>)spo;
                         objNode.Invalidated = false;
                         return;
                     }
@@ -140,6 +147,8 @@ namespace R2ObjView
                         parentNode.Nodes.Add(objNode.Node);
                     }
 
+                    // update reference just in case
+                    objNode.Node.Tag = (Pointer<SuperObject>)spo;
                     objNode.Invalidated = false;
                     return;
                 }
@@ -156,6 +165,8 @@ namespace R2ObjView
 
             if (objectNodeMap.TryGetValue(spoName, out ObjectNode objNode))
             {
+                // update reference just in case
+                objNode.Node.Tag = (Pointer<SuperObject>)spo;
                 objNode.Invalidated = false;
                 return;
             }
@@ -173,11 +184,6 @@ namespace R2ObjView
         private void fmiToolStripButton_CheckedChanged(object sender, EventArgs e)
         {
             InitWorldTree();
-        }
-
-        private void refreshTimer_Tick(object sender, EventArgs e)
-        {
-            UpdateWorldTree();
         }
 
         private void spoToolStripButton_Click(object sender, EventArgs e)

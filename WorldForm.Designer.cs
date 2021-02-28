@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.worldTree = new System.Windows.Forms.TreeView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.spoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.fmiToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,12 +81,6 @@
             this.fmiToolStripButton.Text = "FMI";
             this.fmiToolStripButton.CheckedChanged += new System.EventHandler(this.fmiToolStripButton_CheckedChanged);
             // 
-            // refreshTimer
-            // 
-            this.refreshTimer.Enabled = true;
-            this.refreshTimer.Interval = 1000;
-            this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
-            // 
             // WorldForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,6 +103,5 @@
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton spoToolStripButton;
         private System.Windows.Forms.ToolStripButton fmiToolStripButton;
-        private System.Windows.Forms.Timer refreshTimer;
     }
 }

@@ -1,15 +1,13 @@
-﻿using System.Windows.Forms;
+﻿using System.ComponentModel;
+using System.Windows.Forms;
 using Ray2Mod.Components.Types;
 using Ray2Mod.Game.Structs.MathStructs;
 using Ray2Mod.Game.Structs.SPO;
 
 namespace R2ObjView
 {
-    public unsafe partial class SpoForm : Form, IChildFrame
+    public unsafe partial class SpoForm : ChildFrame
     {
-        public string ChildStatusText { get; }
-        public ToolStrip ChildToolStrip { get; }
-
         private Pointer<SuperObject> SuperObject { get; }
         private string FamilyName { get; }
         private string ModelName { get; }
@@ -19,8 +17,8 @@ namespace R2ObjView
 
         public SpoForm(Pointer<SuperObject> spo)
         {
-            SuperObject = spo;
             InitializeComponent();
+            SuperObject = spo;
 
             FamilyName = familyTextBox.Text =
                 Acp.XHIE_fn_szGetObjectName(SuperObject, Acp.XHIE_OI_TYPE.TOI_FAMILY) ??
@@ -36,7 +34,32 @@ namespace R2ObjView
 
             Text = $"{InstanceName} - Properties";
             Icon = Resources.IconSpo;
+            childrenTreeView.ImageList = IconManager.Icons;
 
+            UpdateSpoData();
+
+            MainFrame.Instance.LevelChanged += OnLevelChanged;
+        }
+
+        private void OnLevelChanged(string levelName)
+        {
+            UnsubscribeRefresh();
+            MainFrame.Instance.LevelChanged -= OnLevelChanged;
+
+            Text += " (unloaded)";
+            unloadedWarningLabel.Visible = true;
+
+            // Disable all interactive controls
+            childrenTreeView.Enabled = false;
+        }
+
+        protected override void RefreshData()
+        {
+            UpdateSpoData();
+        }
+
+        private void UpdateSpoData()
+        {
             cxTextBox.Text = $"{Position.x:F3}";
             cyTextBox.Text = $"{Position.y:F3}";
             czTextBox.Text = $"{Position.z:F3}";
