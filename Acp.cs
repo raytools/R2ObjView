@@ -8,7 +8,7 @@ namespace R2ObjView
     {
         #region HIE
 
-        public delegate void XHIE_tdfnEnumSpoCallback(SuperObject* p_stSpo);
+        public delegate bool XHIE_tdfnEnumSpoCallback(SuperObject* p_stSpo);
 
         [DllImport("ACP_Ray2.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern string XHIE_fn_szGetObjectName(SuperObject* p_stSpo, XHIE_OI_TYPE ulInfoType);
@@ -20,10 +20,10 @@ namespace R2ObjView
 
         #region AI
 
-        public delegate void AI_tdfnEnumDsgVarCallback(DsgVarType ulType, void* p_CurrentValue, void* p_InitialValue);
+        public delegate bool AI_tdfnEnumDsgVarCallback(DsgVarType ulType, void* CurrentValue, void* InitialValue);
 
         [DllImport("ACP_Ray2.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int AI_fn_lEnumSpoDsgVars(SuperObject* p_stSpo, AI_tdfnEnumDsgVarCallback p_fnCallback);
+        public static extern int XAI_fn_lEnumSpoDsgVars(SuperObject* p_stSpo, AI_tdfnEnumDsgVarCallback p_fnCallback);
 
         #endregion
 

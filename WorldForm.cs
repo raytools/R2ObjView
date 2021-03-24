@@ -108,7 +108,7 @@ namespace R2ObjView
                         // update reference just in case
                         objNode.Node.Tag = (Pointer<SuperObject>)spo;
                         objNode.Invalidated = false;
-                        return;
+                        return true;
                     }
                 }
 
@@ -129,6 +129,8 @@ namespace R2ObjView
                 TreeNode node = NewNode(spoName, IconId.Instance, (Pointer<SuperObject>)spo);
                 modelNode.Nodes.Add(node);
                 objectNodeMap[spoName] = new ObjectNode(spo, node, parentNode);
+
+                return true;
             };
         }
 
@@ -150,16 +152,18 @@ namespace R2ObjView
                     // update reference just in case
                     objNode.Node.Tag = (Pointer<SuperObject>)spo;
                     objNode.Invalidated = false;
-                    return;
+                    return true;
                 }
 
                 TreeNode node = NewNode(spoName, IconId.Spo, (Pointer<SuperObject>)spo);
                 parentNode.Nodes.Add(node);
                 objectNodeMap[spoName] = new ObjectNode(spo, node, parentNode);
+
+                return true;
             };
         }
 
-        private void EnumSectorCallback(SuperObject* spo)
+        private bool EnumSectorCallback(SuperObject* spo)
         {
             string spoName = $"Sector [{(int)spo:X8}]";
 
@@ -168,12 +172,14 @@ namespace R2ObjView
                 // update reference just in case
                 objNode.Node.Tag = (Pointer<SuperObject>)spo;
                 objNode.Invalidated = false;
-                return;
+                return true;
             }
 
             TreeNode node = NewNode(spoName, IconId.Spo, (Pointer<SuperObject>)spo);
             fatherSector.Nodes.Add(node);
             objectNodeMap[spoName] = new ObjectNode(spo, node, fatherSector);
+
+            return true;
         }
 
         private TreeNode NewNode(string text, IconId iconId, object tag = null)
@@ -199,7 +205,7 @@ namespace R2ObjView
 
                 // TODO: fix DsgVar enumeration crash
 
-                Acp.AI_fn_lEnumSpoDsgVars(spo, (type, value, initialValue) =>
+                Acp.XAI_fn_lEnumSpoDsgVars(spo, (type, value, initialValue) =>
                 {
                     string sValue = "";
                     string sInitValue = "";
@@ -246,6 +252,8 @@ namespace R2ObjView
 
                     // TODO: dsgvar details tab in SpoForm
                     Debug.WriteLine($"Type: {type}, Value: {sValue}, InitValue: {sInitValue}");
+
+                    return true;
                 });
             }
         }
