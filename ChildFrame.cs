@@ -9,16 +9,21 @@ namespace R2ObjView
 
         protected ChildFrame()
         {
-            MainFrame.Instance.RefreshData += RefreshData;
+            EnableRefresh();
             FormClosing += OnFormClosing;
         }
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            UnsubscribeRefresh();
+            DisableRefresh();
         }
 
-        protected void UnsubscribeRefresh()
+        protected void EnableRefresh()
+        {
+            MainFrame.Instance.RefreshData += RefreshData;
+        }
+
+        protected void DisableRefresh()
         {
             MainFrame.Instance.RefreshData -= RefreshData;
         }

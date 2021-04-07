@@ -42,6 +42,8 @@
             this.worldTree.Name = "worldTree";
             this.worldTree.Size = new System.Drawing.Size(584, 361);
             this.worldTree.TabIndex = 0;
+            this.worldTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.worldTree_NodeMouseClick);
+            this.worldTree.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.worldTree_NodeMouseDoubleClick);
             // 
             // toolStrip
             // 
@@ -66,7 +68,7 @@
             this.spoToolStripButton.MergeAction = System.Windows.Forms.MergeAction.Replace;
             this.spoToolStripButton.Name = "spoToolStripButton";
             this.spoToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.spoToolStripButton.Text = "Superobject";
+            this.spoToolStripButton.Text = "Superobject Properties";
             this.spoToolStripButton.Click += new System.EventHandler(this.spoToolStripButton_Click);
             // 
             // fmiToolStripButton
@@ -78,7 +80,7 @@
             this.fmiToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.fmiToolStripButton.Name = "fmiToolStripButton";
             this.fmiToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.fmiToolStripButton.Text = "FMI";
+            this.fmiToolStripButton.Text = "Group Objects";
             this.fmiToolStripButton.CheckedChanged += new System.EventHandler(this.fmiToolStripButton_CheckedChanged);
             // 
             // WorldForm

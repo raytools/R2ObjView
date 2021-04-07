@@ -44,15 +44,20 @@
             this.label7 = new System.Windows.Forms.Label();
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.childrenTabPage = new System.Windows.Forms.TabPage();
             this.childrenTreeView = new System.Windows.Forms.TreeView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.unloadedWarningLabel = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.spoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.childrenTabPage.SuspendLayout();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // familyTextBox
@@ -202,7 +207,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mainTabControl.Controls.Add(this.tabPage1);
-            this.mainTabControl.Controls.Add(this.tabPage2);
+            this.mainTabControl.Controls.Add(this.childrenTabPage);
             this.mainTabControl.Controls.Add(this.tabPage3);
             this.mainTabControl.Controls.Add(this.tabPage4);
             this.mainTabControl.Location = new System.Drawing.Point(5, 5);
@@ -211,9 +216,12 @@
             this.mainTabControl.SelectedIndex = 0;
             this.mainTabControl.Size = new System.Drawing.Size(474, 401);
             this.mainTabControl.TabIndex = 14;
+            this.mainTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.mainTabControl_Selected);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.typeTextBox);
+            this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label1);
@@ -230,16 +238,16 @@
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // childrenTabPage
             // 
-            this.tabPage2.Controls.Add(this.childrenTreeView);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(8);
-            this.tabPage2.Size = new System.Drawing.Size(466, 375);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Children";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.childrenTabPage.Controls.Add(this.childrenTreeView);
+            this.childrenTabPage.Location = new System.Drawing.Point(4, 22);
+            this.childrenTabPage.Name = "childrenTabPage";
+            this.childrenTabPage.Padding = new System.Windows.Forms.Padding(8);
+            this.childrenTabPage.Size = new System.Drawing.Size(466, 375);
+            this.childrenTabPage.TabIndex = 1;
+            this.childrenTabPage.Text = "Children";
+            this.childrenTabPage.UseVisualStyleBackColor = true;
             // 
             // childrenTreeView
             // 
@@ -248,8 +256,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.childrenTreeView.Location = new System.Drawing.Point(11, 11);
             this.childrenTreeView.Name = "childrenTreeView";
+            this.childrenTreeView.ShowPlusMinus = false;
             this.childrenTreeView.Size = new System.Drawing.Size(444, 353);
             this.childrenTreeView.TabIndex = 0;
+            this.childrenTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.childrenTreeView_NodeMouseClick);
+            this.childrenTreeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.childrenTreeView_NodeMouseDoubleClick);
             // 
             // tabPage3
             // 
@@ -286,11 +297,57 @@
             this.unloadedWarningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.unloadedWarningLabel.Visible = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(227, 111);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Type:";
+            // 
+            // typeTextBox
+            // 
+            this.typeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.typeTextBox.Location = new System.Drawing.Point(284, 108);
+            this.typeTextBox.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.typeTextBox.Name = "typeTextBox";
+            this.typeTextBox.ReadOnly = true;
+            this.typeTextBox.Size = new System.Drawing.Size(171, 20);
+            this.typeTextBox.TabIndex = 15;
+            // 
+            // toolStrip
+            // 
+            this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.spoToolStripButton});
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.ShowItemToolTips = false;
+            this.toolStrip.Size = new System.Drawing.Size(66, 25);
+            this.toolStrip.TabIndex = 15;
+            this.toolStrip.Text = "toolStrip";
+            this.toolStrip.Visible = false;
+            // 
+            // spoToolStripButton
+            // 
+            this.spoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.spoToolStripButton.Enabled = false;
+            this.spoToolStripButton.Image = global::R2ObjView.Resources.ImgSpo;
+            this.spoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.spoToolStripButton.MergeAction = System.Windows.Forms.MergeAction.Replace;
+            this.spoToolStripButton.Name = "spoToolStripButton";
+            this.spoToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.spoToolStripButton.Text = "Superobject Properties";
+            this.spoToolStripButton.Click += new System.EventHandler(this.spoToolStripButton_Click);
+            // 
             // SpoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 411);
+            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.unloadedWarningLabel);
             this.Controls.Add(this.mainTabControl);
             this.Name = "SpoForm";
@@ -300,8 +357,11 @@
             this.mainTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.childrenTabPage.ResumeLayout(false);
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -323,10 +383,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage childrenTabPage;
         private System.Windows.Forms.TreeView childrenTreeView;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label unloadedWarningLabel;
+        private System.Windows.Forms.TextBox typeTextBox;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripButton spoToolStripButton;
     }
 }

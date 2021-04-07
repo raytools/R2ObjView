@@ -1,8 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Ray2Mod.Components;
-using Ray2Mod.Game;
 using Ray2Mod.Game.Functions;
 
 namespace R2ObjView
