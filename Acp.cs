@@ -20,10 +20,10 @@ namespace R2ObjView
 
         #region AI
 
-        public delegate bool AI_tdfnEnumDsgVarCallback(DsgVarType ulType, void* CurrentValue, void* InitialValue);
+        public delegate bool XAI_tdfnEnumDsgVarCallback(byte ucIndex, DsgVarType ulType, void *pCurrentValue, void *pInitValue, void *pModelInitValue);
 
         [DllImport("ACP_Ray2.dll", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int XAI_fn_lEnumSpoDsgVars(SuperObject* p_stSpo, AI_tdfnEnumDsgVarCallback p_fnCallback);
+        public static extern int XAI_fn_lEnumSpoDsgVars(SuperObject* p_stSpo, XAI_tdfnEnumDsgVarCallback p_fnCallback);
 
         #endregion
 

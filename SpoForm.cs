@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using Ray2Mod.Components.Types;
+using Ray2Mod.Game.Structs.AI;
+using Ray2Mod.Game.Structs.EngineObject;
 using Ray2Mod.Game.Structs.MathStructs;
 using Ray2Mod.Game.Structs.SPO;
 
@@ -10,40 +12,57 @@ namespace R2ObjView
     {
         public override ToolStrip ChildToolStrip => toolStrip;
 
-        private Pointer<SuperObject> SuperObject { get; }
-        private string FamilyName { get; }
-        private string ModelName { get; }
-        private string InstanceName { get; }
+        private Pointer<SuperObject> SuperObject;
+        private string familyName;
+        private string modelName;
+        private string instanceName;
+
+        private string spoNameUsable;
 
         private Vector3 Position => SuperObject.StructPtr->matrixPtr->position;
 
         private ObjectTreeManager treeManager;
         private TreeNode parentNode;
 
+        private DsgVarListManager dsgvarManager;
+
         public SpoForm(Pointer<SuperObject> spo)
         {
             InitializeComponent();
             SuperObject = spo;
 
-            string spoName = Acp.XHIE_fn_szGetObjectName(SuperObject, Acp.XHIE_OI_TYPE.TOI_INSTANCE);
+            string spoNameRaw = Acp.XHIE_fn_szGetObjectName(SuperObject, Acp.XHIE_OI_TYPE.TOI_INSTANCE);
+            spoNameUsable = spoNameRaw ?? $"{SuperObject.StructPtr->type} [{(int)SuperObject:X8}]";
 
-            Text = (spoName ?? $"{SuperObject.StructPtr->type} [{(int)SuperObject:X8}]") + " - Properties";
+            Text = $"{spoNameUsable} - Properties";
             Icon = Resources.IconSpo;
 
-            FamilyName = familyTextBox.Text =
+            familyName = familyTextBox.Text =
                 Acp.XHIE_fn_szGetObjectName(SuperObject, Acp.XHIE_OI_TYPE.TOI_FAMILY) ?? "(Unknown)";
 
-            ModelName = modelTextBox.Text =
+            modelName = modelTextBox.Text =
                 Acp.XHIE_fn_szGetObjectName(SuperObject, Acp.XHIE_OI_TYPE.TOI_MODEL) ?? "(Unknown)";
 
-            InstanceName = instanceTextBox.Text = spoName ?? "(Unknown)";
+            instanceName = instanceTextBox.Text = spoNameRaw ?? "(Unknown)";
 
+            ptrTextBox.Text = $"0x{(int)SuperObject:X8}";
             typeTextBox.Text = $"{SuperObject.StructPtr->type} (0x{(int)SuperObject.StructPtr->type:X})";
 
             treeManager = new ObjectTreeManager();
             treeManager.InitIcons(childrenTreeView);
 
-            parentNode = treeManager.NewTreeNode("Children", IconId.Spo);
+            if (SuperObject.StructPtr->type == SuperObjectType.Perso)
+            {
+                dsgvarManager = new DsgVarListManager();
+                dsgvarManager.InitIcons(dsgvarListView);
+                Acp.XAI_fn_lEnumSpoDsgVars(SuperObject, dsgvarManager.GetInitDsgVarsCallback(dsgvarListView));
+            }
+            else
+            {
+                dsgvarTabPage.Enabled = false;
+            }
+
+            parentNode = treeManager.NewTreeNode("Children", IconId.List);
             childrenTreeView.Nodes.Add(parentNode);
 
             MainFrame.Instance.LevelChanged += OnLevelChanged;
@@ -74,7 +93,8 @@ namespace R2ObjView
             czTextBox.Text = $"{Position.z:F3}";
 
             treeManager.InvalidateAll();
-            int nChildren = Acp.XHIE_fn_lEnumSpoChildren(SuperObject, treeManager.GetEnumNonGroupedSpoCallback(parentNode));
+            int nChildren =
+                Acp.XHIE_fn_lEnumSpoChildren(SuperObject, treeManager.GetEnumNonGroupedSpoCallback(parentNode));
             treeManager.RemoveInvalidated();
 
             parentNode.Text = $"Children ({nChildren})";
@@ -109,6 +129,14 @@ namespace R2ObjView
             else
             {
                 spoToolStripButton.Enabled = false;
+            }
+        }
+
+        private void dsgvarListView_ItemActivate(object sender, EventArgs e)
+        {
+            if (dsgvarListView.SelectedItems[0].Tag is DsgVarListItem item)
+            {
+                dsgvarManager.ShowDetails(item, spoNameUsable);
             }
         }
     }

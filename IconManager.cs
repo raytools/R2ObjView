@@ -13,7 +13,7 @@ namespace R2ObjView
             {
                 ImageSize = new Size(16, 16),
                 ColorDepth = ColorDepth.Depth4Bit,
-                TransparentColor = Color.Fuchsia
+                TransparentColor = Color.White
             };
 
             Icons.Images.AddStrip(Resources.NodeIcons);
@@ -30,6 +30,16 @@ namespace R2ObjView
         Model,
         Instance,
 
-        Empty
+        Empty,
+
+        Pointer,
+        List,
+        Byte,
+        Short,
+        Int,
+        Float,
+        Boolean,
+        Vector,
+        Text,
     }
 }

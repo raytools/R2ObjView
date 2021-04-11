@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 using Ray2Mod.Game.Functions;
 
@@ -33,6 +34,7 @@ namespace R2ObjView
             }
         }
 
+        private MdiClient mdiClient;
         private WorldForm worldForm;
 
         private MainFrame()
@@ -40,6 +42,12 @@ namespace R2ObjView
             InitializeComponent();
             Icon = Resources.glidetect;
             StatusText = "Ready.";
+
+            foreach (Control ctl in Controls)
+            {
+                if (ctl is MdiClient client)
+                    mdiClient = client;
+            }
 
             // HACK: quick fix for VS designer crash
             if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
@@ -60,6 +68,16 @@ namespace R2ObjView
         {
             form.MdiParent = this;
             form.Show();
+        }
+
+        public void ShowChildAtCursor(Form form)
+        {
+            Point point = mdiClient.PointToClient(Cursor.Position);
+            point.Offset(-8, -8);
+
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = point;
+            ShowChild(form);
         }
 
         #region View menu
@@ -194,6 +212,7 @@ namespace R2ObjView
             {
                 LevelChanged?.Invoke(levelName);
                 previousLevelName = levelName;
+                levelNameLabel.Text = levelName;
             }
 
             RefreshData?.Invoke();

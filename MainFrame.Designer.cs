@@ -55,6 +55,7 @@
             this.statusLine = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
+            this.levelNameLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -265,25 +266,43 @@
             // 
             // statusStrip
             // 
+            this.statusStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLine});
-            this.statusStrip.Location = new System.Drawing.Point(0, 539);
+            this.statusLine,
+            this.levelNameLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 537);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip.Size = new System.Drawing.Size(784, 24);
             this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
             // 
             // statusLine
             // 
             this.statusLine.AccessibleDescription = "";
+            this.statusLine.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.statusLine.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
             this.statusLine.Name = "statusLine";
-            this.statusLine.Size = new System.Drawing.Size(39, 17);
+            this.statusLine.Size = new System.Drawing.Size(664, 19);
+            this.statusLine.Spring = true;
             this.statusLine.Text = "Status";
+            this.statusLine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // refreshTimer
             // 
             this.refreshTimer.Interval = 1000;
             this.refreshTimer.Tick += new System.EventHandler(this.refreshTimer_Tick);
+            // 
+            // levelNameLabel
+            // 
+            this.levelNameLabel.AutoSize = false;
+            this.levelNameLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.levelNameLabel.BorderStyle = System.Windows.Forms.Border3DStyle.SunkenOuter;
+            this.levelNameLabel.Margin = new System.Windows.Forms.Padding(0, 3, 5, 2);
+            this.levelNameLabel.Name = "levelNameLabel";
+            this.levelNameLabel.Size = new System.Drawing.Size(100, 19);
             // 
             // MainFrame
             // 
@@ -337,6 +356,7 @@
         private System.Windows.Forms.ToolStripMenuItem autoRefreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.Timer refreshTimer;
+        private System.Windows.Forms.ToolStripStatusLabel levelNameLabel;
     }
 }
 
