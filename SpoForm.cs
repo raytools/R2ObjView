@@ -56,10 +56,12 @@ namespace R2ObjView
                 dsgvarManager = new DsgVarListManager();
                 dsgvarManager.InitIcons(dsgvarListView);
                 Acp.XAI_fn_lEnumSpoDsgVars(SuperObject, dsgvarManager.GetInitDsgVarsCallback(dsgvarListView));
+                dynamicsTabPage.Enabled = true;
             }
             else
             {
                 dsgvarTabPage.Enabled = false;
+                dynamicsTabPage.Enabled = false;
             }
 
             parentNode = treeManager.NewTreeNode("Children", IconId.List);
@@ -99,6 +101,39 @@ namespace R2ObjView
 
             parentNode.Text = $"Children ({nChildren})";
             parentNode.Expand();
+
+            UpdateDynamics();
+        }
+
+        private void UpdateDynamics()
+        {
+            if (SuperObject.StructPtr->PersoData == null || SuperObject.StructPtr->PersoData->dynam == null) {
+                dynamicsTabPage.Enabled = false;
+                return;
+            }
+
+            var dynam = SuperObject.StructPtr->PersoData->dynam;
+            dynamicsTypeSelection.SelectedIndex = (int) dynam->DynamicsBase->DynamicsBlockBase.Type;
+            var dynBase = dynam->DynamicsBase->DynamicsBlockBase;
+
+            SetDynamListValue(listViewBaseDynamics, 0, dynBase.m_lObjectType.ToString());
+            SetDynamListValue(listViewBaseDynamics, 1, dynBase.m_pCurrentIdCard.ToString("x8"));
+            SetDynamListValue(listViewBaseDynamics, 2, dynBase.ulFlags.ToString("x8"));
+            SetDynamListValue(listViewBaseDynamics, 3, dynBase.ulEndFlags.ToString("x8"));
+            SetDynamListValue(listViewBaseDynamics, 4, dynBase.m_xGravity.ToString());
+            SetDynamListValue(listViewBaseDynamics, 5, dynBase.m_xSlopeLimit.ToString());
+            SetDynamListValue(listViewBaseDynamics, 6, dynBase.m_xCosSlope.ToString());
+            SetDynamListValue(listViewBaseDynamics, 7, dynBase.m_xSlide.ToString());
+            SetDynamListValue(listViewBaseDynamics, 8, dynBase.m_xRebound.ToString());
+        }
+
+        private void SetDynamListValue(ListView list, int row, string text)
+        {
+            if (list.Items[row].SubItems.Count <= 1) {
+                list.Items[row].SubItems.Add(text);
+            } else {
+                list.Items[row].SubItems[1].Text = text;
+            }
         }
 
         private void childrenTreeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -138,6 +173,12 @@ namespace R2ObjView
             {
                 dsgvarManager.ShowDetails(item, spoNameUsable);
             }
+        }
+
+        private void dynamicsTypeSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tabPageDynamicsAdvanced.Enabled = dynamicsTypeSelection.SelectedIndex>=1;
+            tabPageDynamicsComplex.Enabled = dynamicsTypeSelection.SelectedIndex>=2;
         }
     }
 }

@@ -28,6 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Object Type");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Current ID Card");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Flags");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("EndFlags");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Gravity");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Slope Limit");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Cos Slope");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Slide");
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Rebound");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Impose Speed");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Propose Speed");
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Previous Speed");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Scale");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Speed Anim");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Safe Translation");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Add Translation");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Frame Number");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Inertia X");
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Inertia Y");
+            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Inertia Z");
+            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("Stream Priority");
+            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("Stream Factor");
+            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("Slide Factor X");
+            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("Slide Factor Y");
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("Slide Factor Z");
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("Previous Slide");
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("Max Speed");
+            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("Stream Speed");
+            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem("Add Speed");
+            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem("Limit");
+            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem("Collision Translation");
+            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem("Inertia Translation");
+            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem("Ground Normal");
+            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem("Wall Normal");
+            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem("Collide Counter");
+            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem("Tilt Intensity");
+            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem("Tilt Inertia");
+            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem("Tilt Origin");
+            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem("Tilt Angle");
+            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem("Hanging Limit");
+            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem("Contact");
+            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem("Fall Translation");
+            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem("Platform");
             this.familyTextBox = new System.Windows.Forms.TextBox();
             this.modelTextBox = new System.Windows.Forms.TextBox();
             this.instanceTextBox = new System.Windows.Forms.TextBox();
@@ -57,7 +100,22 @@
             this.valueColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.initValueColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.modelInitColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dynamicsTabPage = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPageDynamicsBase = new System.Windows.Forms.TabPage();
+            this.listViewBaseDynamics = new System.Windows.Forms.ListView();
+            this.columnHeaderKeys = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderValues = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPageDynamicsAdvanced = new System.Windows.Forms.TabPage();
+            this.listViewAdvancedDynamics = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tabPageDynamicsComplex = new System.Windows.Forms.TabPage();
+            this.listViewComplexDynamics = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label10 = new System.Windows.Forms.Label();
+            this.dynamicsTypeSelection = new System.Windows.Forms.ComboBox();
             this.unloadedWarningLabel = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.spoToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -66,6 +124,11 @@
             this.generalTabPage.SuspendLayout();
             this.childrenTabPage.SuspendLayout();
             this.dsgvarTabPage.SuspendLayout();
+            this.dynamicsTabPage.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPageDynamicsBase.SuspendLayout();
+            this.tabPageDynamicsAdvanced.SuspendLayout();
+            this.tabPageDynamicsComplex.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -225,7 +288,7 @@
             this.mainTabControl.Controls.Add(this.generalTabPage);
             this.mainTabControl.Controls.Add(this.childrenTabPage);
             this.mainTabControl.Controls.Add(this.dsgvarTabPage);
-            this.mainTabControl.Controls.Add(this.tabPage4);
+            this.mainTabControl.Controls.Add(this.dynamicsTabPage);
             this.mainTabControl.Location = new System.Drawing.Point(5, 5);
             this.mainTabControl.Margin = new System.Windows.Forms.Padding(0);
             this.mainTabControl.Name = "mainTabControl";
@@ -380,15 +443,216 @@
             this.modelInitColumnHeader.Text = "Model Init";
             this.modelInitColumnHeader.Width = 100;
             // 
-            // tabPage4
+            // dynamicsTabPage
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(8);
-            this.tabPage4.Size = new System.Drawing.Size(416, 375);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Bepis";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.dynamicsTabPage.Controls.Add(this.tabControl1);
+            this.dynamicsTabPage.Controls.Add(this.label10);
+            this.dynamicsTabPage.Controls.Add(this.dynamicsTypeSelection);
+            this.dynamicsTabPage.Location = new System.Drawing.Point(4, 22);
+            this.dynamicsTabPage.Name = "dynamicsTabPage";
+            this.dynamicsTabPage.Padding = new System.Windows.Forms.Padding(8);
+            this.dynamicsTabPage.Size = new System.Drawing.Size(416, 375);
+            this.dynamicsTabPage.TabIndex = 3;
+            this.dynamicsTabPage.Text = "Dynamics";
+            this.dynamicsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPageDynamicsBase);
+            this.tabControl1.Controls.Add(this.tabPageDynamicsAdvanced);
+            this.tabControl1.Controls.Add(this.tabPageDynamicsComplex);
+            this.tabControl1.Location = new System.Drawing.Point(11, 37);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(394, 288);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPageDynamicsBase
+            // 
+            this.tabPageDynamicsBase.Controls.Add(this.listViewBaseDynamics);
+            this.tabPageDynamicsBase.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDynamicsBase.Name = "tabPageDynamicsBase";
+            this.tabPageDynamicsBase.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDynamicsBase.Size = new System.Drawing.Size(386, 262);
+            this.tabPageDynamicsBase.TabIndex = 0;
+            this.tabPageDynamicsBase.Text = "Base";
+            this.tabPageDynamicsBase.UseVisualStyleBackColor = true;
+            // 
+            // listViewBaseDynamics
+            // 
+            this.listViewBaseDynamics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewBaseDynamics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderKeys,
+            this.columnHeaderValues});
+            this.listViewBaseDynamics.GridLines = true;
+            this.listViewBaseDynamics.HideSelection = false;
+            this.listViewBaseDynamics.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17});
+            this.listViewBaseDynamics.Location = new System.Drawing.Point(6, 6);
+            this.listViewBaseDynamics.Name = "listViewBaseDynamics";
+            this.listViewBaseDynamics.Size = new System.Drawing.Size(374, 250);
+            this.listViewBaseDynamics.TabIndex = 0;
+            this.listViewBaseDynamics.UseCompatibleStateImageBehavior = false;
+            this.listViewBaseDynamics.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderKeys
+            // 
+            this.columnHeaderKeys.Text = "Property";
+            this.columnHeaderKeys.Width = 106;
+            // 
+            // columnHeaderValues
+            // 
+            this.columnHeaderValues.Text = "Value";
+            this.columnHeaderValues.Width = 242;
+            // 
+            // tabPageDynamicsAdvanced
+            // 
+            this.tabPageDynamicsAdvanced.Controls.Add(this.listViewAdvancedDynamics);
+            this.tabPageDynamicsAdvanced.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDynamicsAdvanced.Name = "tabPageDynamicsAdvanced";
+            this.tabPageDynamicsAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDynamicsAdvanced.Size = new System.Drawing.Size(386, 262);
+            this.tabPageDynamicsAdvanced.TabIndex = 1;
+            this.tabPageDynamicsAdvanced.Text = "Advanced";
+            this.tabPageDynamicsAdvanced.UseVisualStyleBackColor = true;
+            // 
+            // listViewAdvancedDynamics
+            // 
+            this.listViewAdvancedDynamics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewAdvancedDynamics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listViewAdvancedDynamics.GridLines = true;
+            this.listViewAdvancedDynamics.HideSelection = false;
+            this.listViewAdvancedDynamics.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem18,
+            listViewItem19,
+            listViewItem20,
+            listViewItem21,
+            listViewItem22,
+            listViewItem23,
+            listViewItem24,
+            listViewItem25,
+            listViewItem26,
+            listViewItem27,
+            listViewItem28,
+            listViewItem29,
+            listViewItem30,
+            listViewItem31,
+            listViewItem32,
+            listViewItem33,
+            listViewItem34,
+            listViewItem35});
+            this.listViewAdvancedDynamics.Location = new System.Drawing.Point(6, 6);
+            this.listViewAdvancedDynamics.Name = "listViewAdvancedDynamics";
+            this.listViewAdvancedDynamics.Size = new System.Drawing.Size(374, 250);
+            this.listViewAdvancedDynamics.TabIndex = 1;
+            this.listViewAdvancedDynamics.UseCompatibleStateImageBehavior = false;
+            this.listViewAdvancedDynamics.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Property";
+            this.columnHeader1.Width = 106;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Value";
+            this.columnHeader2.Width = 242;
+            // 
+            // tabPageDynamicsComplex
+            // 
+            this.tabPageDynamicsComplex.Controls.Add(this.listViewComplexDynamics);
+            this.tabPageDynamicsComplex.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDynamicsComplex.Name = "tabPageDynamicsComplex";
+            this.tabPageDynamicsComplex.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDynamicsComplex.Size = new System.Drawing.Size(386, 262);
+            this.tabPageDynamicsComplex.TabIndex = 2;
+            this.tabPageDynamicsComplex.Text = "Complex";
+            this.tabPageDynamicsComplex.UseVisualStyleBackColor = true;
+            // 
+            // listViewComplexDynamics
+            // 
+            this.listViewComplexDynamics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listViewComplexDynamics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listViewComplexDynamics.GridLines = true;
+            this.listViewComplexDynamics.HideSelection = false;
+            this.listViewComplexDynamics.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem36,
+            listViewItem37,
+            listViewItem38,
+            listViewItem39,
+            listViewItem40,
+            listViewItem41,
+            listViewItem42,
+            listViewItem43});
+            this.listViewComplexDynamics.Location = new System.Drawing.Point(6, 6);
+            this.listViewComplexDynamics.Name = "listViewComplexDynamics";
+            this.listViewComplexDynamics.Size = new System.Drawing.Size(374, 250);
+            this.listViewComplexDynamics.TabIndex = 2;
+            this.listViewComplexDynamics.UseCompatibleStateImageBehavior = false;
+            this.listViewComplexDynamics.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Property";
+            this.columnHeader3.Width = 106;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Value";
+            this.columnHeader4.Width = 242;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 13);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Dynamics Type";
+            // 
+            // dynamicsTypeSelection
+            // 
+            this.dynamicsTypeSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dynamicsTypeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.dynamicsTypeSelection.FormattingEnabled = true;
+            this.dynamicsTypeSelection.Items.AddRange(new object[] {
+            "Base",
+            "Advanced",
+            "Complex"});
+            this.dynamicsTypeSelection.Location = new System.Drawing.Point(164, 10);
+            this.dynamicsTypeSelection.Name = "dynamicsTypeSelection";
+            this.dynamicsTypeSelection.Size = new System.Drawing.Size(237, 21);
+            this.dynamicsTypeSelection.TabIndex = 0;
+            this.dynamicsTypeSelection.SelectedIndexChanged += new System.EventHandler(this.dynamicsTypeSelection_SelectedIndexChanged);
             // 
             // unloadedWarningLabel
             // 
@@ -448,6 +712,12 @@
             this.generalTabPage.PerformLayout();
             this.childrenTabPage.ResumeLayout(false);
             this.dsgvarTabPage.ResumeLayout(false);
+            this.dynamicsTabPage.ResumeLayout(false);
+            this.dynamicsTabPage.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPageDynamicsBase.ResumeLayout(false);
+            this.tabPageDynamicsAdvanced.ResumeLayout(false);
+            this.tabPageDynamicsComplex.ResumeLayout(false);
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -476,7 +746,7 @@
         private System.Windows.Forms.TabPage childrenTabPage;
         private System.Windows.Forms.TreeView childrenTreeView;
         private System.Windows.Forms.TabPage dsgvarTabPage;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage dynamicsTabPage;
         private System.Windows.Forms.Label unloadedWarningLabel;
         private System.Windows.Forms.TextBox typeTextBox;
         private System.Windows.Forms.Label label8;
@@ -490,5 +760,20 @@
         private System.Windows.Forms.ColumnHeader valueColumnHeader;
         private System.Windows.Forms.ColumnHeader initValueColumnHeader;
         private System.Windows.Forms.ColumnHeader modelInitColumnHeader;
+        private System.Windows.Forms.ComboBox dynamicsTypeSelection;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPageDynamicsBase;
+        private System.Windows.Forms.TabPage tabPageDynamicsAdvanced;
+        private System.Windows.Forms.TabPage tabPageDynamicsComplex;
+        private System.Windows.Forms.ListView listViewBaseDynamics;
+        private System.Windows.Forms.ColumnHeader columnHeaderKeys;
+        private System.Windows.Forms.ColumnHeader columnHeaderValues;
+        private System.Windows.Forms.ListView listViewAdvancedDynamics;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ListView listViewComplexDynamics;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }
