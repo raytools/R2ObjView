@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using R2ObjView.SPO;
 using Ray2Mod.Components.Types;
 using Ray2Mod.Game;
 using Ray2Mod.Game.Structs.SPO;

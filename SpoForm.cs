@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using R2ObjView.SPO;
 using Ray2Mod.Components.Types;
 using Ray2Mod.Game.Structs.AI;
+using Ray2Mod.Game.Structs.Dynamics;
+using Ray2Mod.Game.Structs.Dynamics.Blocks;
 using Ray2Mod.Game.Structs.EngineObject;
 using Ray2Mod.Game.Structs.MathStructs;
 using Ray2Mod.Game.Structs.SPO;
@@ -25,6 +28,7 @@ namespace R2ObjView
         private TreeNode parentNode;
 
         private DsgVarListManager dsgvarManager;
+        private DynamManager dynamManager;
 
         public SpoForm(Pointer<SuperObject> spo)
         {
@@ -37,62 +41,92 @@ namespace R2ObjView
             Text = $"{spoNameUsable} - Properties";
             Icon = Resources.IconSpo;
 
-            familyName = familyTextBox.Text =
+            familyName = ctbFamily.Text =
                 Acp.XHIE_fn_szGetObjectName(SuperObject, Acp.XHIE_OI_TYPE.TOI_FAMILY) ?? "(Unknown)";
 
-            modelName = modelTextBox.Text =
+            modelName = ctbModel.Text =
                 Acp.XHIE_fn_szGetObjectName(SuperObject, Acp.XHIE_OI_TYPE.TOI_MODEL) ?? "(Unknown)";
 
-            instanceName = instanceTextBox.Text = spoNameRaw ?? "(Unknown)";
+            instanceName = ctbInstance.Text = spoNameRaw ?? "(Unknown)";
 
-            ptrTextBox.Text = $"0x{(int)SuperObject:X8}";
-            typeTextBox.Text = $"{SuperObject.StructPtr->type} (0x{(int)SuperObject.StructPtr->type:X})";
+            ctbAddress.Text = $"0x{(int)SuperObject:X8}";
+            ctbType.Text = $"{SuperObject.StructPtr->type} (0x{(int)SuperObject.StructPtr->type:X})";
 
             treeManager = new ObjectTreeManager();
-            treeManager.InitIcons(childrenTreeView);
+            treeManager.InitIcons(ctvChildren);
 
             if (SuperObject.StructPtr->type == SuperObjectType.Perso)
             {
                 dsgvarManager = new DsgVarListManager();
-                dsgvarManager.InitIcons(dsgvarListView);
-                Acp.XAI_fn_lEnumSpoDsgVars(SuperObject, dsgvarManager.GetInitDsgVarsCallback(dsgvarListView));
-                dynamicsTabPage.Enabled = true;
+                dsgvarManager.InitIcons(clvDsgVars);
+                Acp.XAI_fn_lEnumSpoDsgVars(SuperObject, dsgvarManager.GetInitDsgVarsCallback(clvDsgVars));
+
+                if (SuperObject.StructPtr->PersoData->dynam != null)
+                {
+                    dynamManager = new DynamManager(SuperObject);
+                    dynamManager.InitListView(clvDynamBase, DynamicsBlockBase.DynamicsType.Base);
+                    dynamManager.InitListView(clvDynamAdvanced, DynamicsBlockBase.DynamicsType.Advanced);
+                    dynamManager.InitListView(clvDynamComplex, DynamicsBlockBase.DynamicsType.Complex);
+
+                    switch (dynamManager.DynamType)
+                    {
+                        case DynamicsBlockBase.DynamicsType.Base:
+                            crbDynamTypeBase.Checked = true;
+                            break;
+
+                        case DynamicsBlockBase.DynamicsType.Advanced:
+                            crbDynamTypeAdvanced.Checked = true;
+                            break;
+
+                        case DynamicsBlockBase.DynamicsType.Complex:
+                            crbDynamTypeComplex.Checked = true;
+                            break;
+                    }
+                }
+                else
+                {
+                    ctpDynamics.Enabled = false;
+                }
             }
             else
             {
-                dsgvarTabPage.Enabled = false;
-                dynamicsTabPage.Enabled = false;
+                ctpDsgVars.Enabled = false;
+                ctpDynamics.Enabled = false;
             }
 
             parentNode = treeManager.NewTreeNode("Children", IconId.List);
-            childrenTreeView.Nodes.Add(parentNode);
+            ctvChildren.Nodes.Add(parentNode);
 
             MainFrame.Instance.LevelChanged += OnLevelChanged;
             UpdateSpoData();
         }
 
-        private void OnLevelChanged(string levelName)
+        protected override void OnLevelChanged(string levelName)
         {
             DisableRefresh();
-            MainFrame.Instance.LevelChanged -= OnLevelChanged;
+            DisableLevelChanged();
 
             Text += " (unloaded)";
             unloadedWarningLabel.Visible = true;
 
             // Disable all interactive controls
-            childrenTreeView.Enabled = false;
+            ctpChildren.Enabled = false;
+            ctpDsgVars.Enabled = false;
+            ctpDynamics.Enabled = false;
         }
 
         protected override void RefreshData()
         {
             UpdateSpoData();
+            dsgvarManager?.UpdateAll();
+            dynamManager?.UpdateAll();
         }
 
         private void UpdateSpoData()
         {
-            cxTextBox.Text = $"{Position.x:F3}";
-            cyTextBox.Text = $"{Position.y:F3}";
-            czTextBox.Text = $"{Position.z:F3}";
+            ctbX.Text = $"{Position.x:F3}";
+            ctbY.Text = $"{Position.y:F3}";
+            ctbZ.Text = $"{Position.z:F3}";
 
             treeManager.InvalidateAll();
             int nChildren =
@@ -101,42 +135,9 @@ namespace R2ObjView
 
             parentNode.Text = $"Children ({nChildren})";
             parentNode.Expand();
-
-            UpdateDynamics();
         }
 
-        private void UpdateDynamics()
-        {
-            if (SuperObject.StructPtr->PersoData == null || SuperObject.StructPtr->PersoData->dynam == null) {
-                dynamicsTabPage.Enabled = false;
-                return;
-            }
-
-            var dynam = SuperObject.StructPtr->PersoData->dynam;
-            dynamicsTypeSelection.SelectedIndex = (int) dynam->DynamicsBase->DynamicsBlockBase.Type;
-            var dynBase = dynam->DynamicsBase->DynamicsBlockBase;
-
-            SetDynamListValue(listViewBaseDynamics, 0, dynBase.m_lObjectType.ToString());
-            SetDynamListValue(listViewBaseDynamics, 1, dynBase.m_pCurrentIdCard.ToString("x8"));
-            SetDynamListValue(listViewBaseDynamics, 2, dynBase.ulFlags.ToString("x8"));
-            SetDynamListValue(listViewBaseDynamics, 3, dynBase.ulEndFlags.ToString("x8"));
-            SetDynamListValue(listViewBaseDynamics, 4, dynBase.m_xGravity.ToString());
-            SetDynamListValue(listViewBaseDynamics, 5, dynBase.m_xSlopeLimit.ToString());
-            SetDynamListValue(listViewBaseDynamics, 6, dynBase.m_xCosSlope.ToString());
-            SetDynamListValue(listViewBaseDynamics, 7, dynBase.m_xSlide.ToString());
-            SetDynamListValue(listViewBaseDynamics, 8, dynBase.m_xRebound.ToString());
-        }
-
-        private void SetDynamListValue(ListView list, int row, string text)
-        {
-            if (list.Items[row].SubItems.Count <= 1) {
-                list.Items[row].SubItems.Add(text);
-            } else {
-                list.Items[row].SubItems[1].Text = text;
-            }
-        }
-
-        private void childrenTreeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void ctvChildren_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -144,41 +145,35 @@ namespace R2ObjView
             }
         }
 
-        private void spoToolStripButton_Click(object sender, EventArgs e)
+        private void ctsbSpo_Click(object sender, EventArgs e)
         {
-            TreeNode node = childrenTreeView.SelectedNode;
+            TreeNode node = ctvChildren.SelectedNode;
             treeManager.ShowSpoDetails(node);
         }
 
-        private void childrenTreeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void ctvChildren_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            spoToolStripButton.Enabled = e.Node.Tag is Pointer<SuperObject>;
+            ctsbSpo.Enabled = e.Node.Tag is Pointer<SuperObject>;
         }
 
-        private void mainTabControl_Selected(object sender, TabControlEventArgs e)
+        private void ctcMain_Selected(object sender, TabControlEventArgs e)
         {
-            if (e.TabPage == childrenTabPage)
+            if (e.TabPage == ctpChildren)
             {
-                spoToolStripButton.Enabled = childrenTreeView.SelectedNode?.Tag is Pointer<SuperObject>;
+                ctsbSpo.Enabled = ctvChildren.SelectedNode?.Tag is Pointer<SuperObject>;
             }
             else
             {
-                spoToolStripButton.Enabled = false;
+                ctsbSpo.Enabled = false;
             }
         }
 
-        private void dsgvarListView_ItemActivate(object sender, EventArgs e)
+        private void clvDsgVars_ItemActivate(object sender, EventArgs e)
         {
-            if (dsgvarListView.SelectedItems[0].Tag is DsgVarListItem item)
+            if (clvDsgVars.SelectedItems[0].Tag is DsgVarListItem item)
             {
                 dsgvarManager.ShowDetails(item, spoNameUsable);
             }
-        }
-
-        private void dynamicsTypeSelection_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tabPageDynamicsAdvanced.Enabled = dynamicsTypeSelection.SelectedIndex>=1;
-            tabPageDynamicsComplex.Enabled = dynamicsTypeSelection.SelectedIndex>=2;
         }
     }
 }

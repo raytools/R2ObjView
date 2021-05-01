@@ -70,6 +70,7 @@ namespace R2ObjView
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DetailsGridForm";
+            this.ShowIcon = false;
             this.Text = "DetailsGridForm";
             this.ResumeLayout(false);
 

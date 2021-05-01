@@ -28,103 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Object Type");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Current ID Card");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Flags");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("EndFlags");
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Gravity");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Slope Limit");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Cos Slope");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Slide");
-            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Rebound");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Impose Speed");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Propose Speed");
-            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Previous Speed");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Scale");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Speed Anim");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Safe Translation");
-            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Add Translation");
-            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Frame Number");
-            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Inertia X");
-            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("Inertia Y");
-            System.Windows.Forms.ListViewItem listViewItem20 = new System.Windows.Forms.ListViewItem("Inertia Z");
-            System.Windows.Forms.ListViewItem listViewItem21 = new System.Windows.Forms.ListViewItem("Stream Priority");
-            System.Windows.Forms.ListViewItem listViewItem22 = new System.Windows.Forms.ListViewItem("Stream Factor");
-            System.Windows.Forms.ListViewItem listViewItem23 = new System.Windows.Forms.ListViewItem("Slide Factor X");
-            System.Windows.Forms.ListViewItem listViewItem24 = new System.Windows.Forms.ListViewItem("Slide Factor Y");
-            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("Slide Factor Z");
-            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("Previous Slide");
-            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("Max Speed");
-            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("Stream Speed");
-            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem("Add Speed");
-            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem("Limit");
-            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem("Collision Translation");
-            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem("Inertia Translation");
-            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem("Ground Normal");
-            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem("Wall Normal");
-            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem("Collide Counter");
-            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem("Tilt Intensity");
-            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem("Tilt Inertia");
-            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem("Tilt Origin");
-            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem("Tilt Angle");
-            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem("Hanging Limit");
-            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem("Contact");
-            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem("Fall Translation");
-            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem("Platform");
-            this.familyTextBox = new System.Windows.Forms.TextBox();
-            this.modelTextBox = new System.Windows.Forms.TextBox();
-            this.instanceTextBox = new System.Windows.Forms.TextBox();
+            this.ctbFamily = new System.Windows.Forms.TextBox();
+            this.ctbModel = new System.Windows.Forms.TextBox();
+            this.ctbInstance = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cxTextBox = new System.Windows.Forms.TextBox();
+            this.ctbX = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cyTextBox = new System.Windows.Forms.TextBox();
-            this.czTextBox = new System.Windows.Forms.TextBox();
+            this.ctbY = new System.Windows.Forms.TextBox();
+            this.ctbZ = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.mainTabControl = new System.Windows.Forms.TabControl();
-            this.generalTabPage = new System.Windows.Forms.TabPage();
-            this.typeTextBox = new System.Windows.Forms.TextBox();
+            this.ctcMain = new System.Windows.Forms.TabControl();
+            this.ctpGeneral = new System.Windows.Forms.TabPage();
+            this.unloadedWarningLabel = new System.Windows.Forms.Label();
+            this.ctbType = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.ptrTextBox = new System.Windows.Forms.TextBox();
+            this.ctbAddress = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.childrenTabPage = new System.Windows.Forms.TabPage();
-            this.childrenTreeView = new System.Windows.Forms.TreeView();
-            this.dsgvarTabPage = new System.Windows.Forms.TabPage();
-            this.dsgvarListView = new System.Windows.Forms.ListView();
+            this.ctpChildren = new System.Windows.Forms.TabPage();
+            this.ctvChildren = new System.Windows.Forms.TreeView();
+            this.ctpDsgVars = new System.Windows.Forms.TabPage();
+            this.clvDsgVars = new System.Windows.Forms.ListView();
             this.typeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.idxColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.valueColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.initValueColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.modelInitColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.dynamicsTabPage = new System.Windows.Forms.TabPage();
+            this.ctpDynamics = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.crbDynamTypeComplex = new System.Windows.Forms.RadioButton();
+            this.crbDynamTypeAdvanced = new System.Windows.Forms.RadioButton();
+            this.crbDynamTypeBase = new System.Windows.Forms.RadioButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageDynamicsBase = new System.Windows.Forms.TabPage();
-            this.listViewBaseDynamics = new System.Windows.Forms.ListView();
+            this.clvDynamBase = new System.Windows.Forms.ListView();
             this.columnHeaderKeys = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderValues = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageDynamicsAdvanced = new System.Windows.Forms.TabPage();
-            this.listViewAdvancedDynamics = new System.Windows.Forms.ListView();
+            this.clvDynamAdvanced = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPageDynamicsComplex = new System.Windows.Forms.TabPage();
-            this.listViewComplexDynamics = new System.Windows.Forms.ListView();
+            this.clvDynamComplex = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label10 = new System.Windows.Forms.Label();
-            this.dynamicsTypeSelection = new System.Windows.Forms.ComboBox();
-            this.unloadedWarningLabel = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.spoToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.ctsbSpo = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
-            this.mainTabControl.SuspendLayout();
-            this.generalTabPage.SuspendLayout();
-            this.childrenTabPage.SuspendLayout();
-            this.dsgvarTabPage.SuspendLayout();
-            this.dynamicsTabPage.SuspendLayout();
+            this.ctcMain.SuspendLayout();
+            this.ctpGeneral.SuspendLayout();
+            this.ctpChildren.SuspendLayout();
+            this.ctpDsgVars.SuspendLayout();
+            this.ctpDynamics.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageDynamicsBase.SuspendLayout();
             this.tabPageDynamicsAdvanced.SuspendLayout();
@@ -132,38 +94,38 @@
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // familyTextBox
+            // ctbFamily
             // 
-            this.familyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctbFamily.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.familyTextBox.Location = new System.Drawing.Point(113, 8);
-            this.familyTextBox.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.familyTextBox.Name = "familyTextBox";
-            this.familyTextBox.ReadOnly = true;
-            this.familyTextBox.Size = new System.Drawing.Size(295, 20);
-            this.familyTextBox.TabIndex = 0;
+            this.ctbFamily.Location = new System.Drawing.Point(113, 8);
+            this.ctbFamily.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.ctbFamily.Name = "ctbFamily";
+            this.ctbFamily.ReadOnly = true;
+            this.ctbFamily.Size = new System.Drawing.Size(295, 20);
+            this.ctbFamily.TabIndex = 0;
             // 
-            // modelTextBox
+            // ctbModel
             // 
-            this.modelTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctbModel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.modelTextBox.Location = new System.Drawing.Point(113, 34);
-            this.modelTextBox.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.modelTextBox.Name = "modelTextBox";
-            this.modelTextBox.ReadOnly = true;
-            this.modelTextBox.Size = new System.Drawing.Size(295, 20);
-            this.modelTextBox.TabIndex = 1;
+            this.ctbModel.Location = new System.Drawing.Point(113, 34);
+            this.ctbModel.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.ctbModel.Name = "ctbModel";
+            this.ctbModel.ReadOnly = true;
+            this.ctbModel.Size = new System.Drawing.Size(295, 20);
+            this.ctbModel.TabIndex = 1;
             // 
-            // instanceTextBox
+            // ctbInstance
             // 
-            this.instanceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctbInstance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.instanceTextBox.Location = new System.Drawing.Point(113, 60);
-            this.instanceTextBox.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.instanceTextBox.Name = "instanceTextBox";
-            this.instanceTextBox.ReadOnly = true;
-            this.instanceTextBox.Size = new System.Drawing.Size(295, 20);
-            this.instanceTextBox.TabIndex = 2;
+            this.ctbInstance.Location = new System.Drawing.Point(113, 60);
+            this.ctbInstance.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.ctbInstance.Name = "ctbInstance";
+            this.ctbInstance.ReadOnly = true;
+            this.ctbInstance.Size = new System.Drawing.Size(295, 20);
+            this.ctbInstance.TabIndex = 2;
             // 
             // label1
             // 
@@ -195,12 +157,12 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.cxTextBox);
+            this.groupBox1.Controls.Add(this.ctbX);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.cyTextBox);
-            this.groupBox1.Controls.Add(this.czTextBox);
+            this.groupBox1.Controls.Add(this.ctbY);
+            this.groupBox1.Controls.Add(this.ctbZ);
             this.groupBox1.Location = new System.Drawing.Point(208, 142);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -209,16 +171,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Coordinates";
             // 
-            // cxTextBox
+            // ctbX
             // 
-            this.cxTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctbX.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cxTextBox.Location = new System.Drawing.Point(39, 21);
-            this.cxTextBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.cxTextBox.Name = "cxTextBox";
-            this.cxTextBox.ReadOnly = true;
-            this.cxTextBox.Size = new System.Drawing.Size(149, 20);
-            this.cxTextBox.TabIndex = 7;
+            this.ctbX.Location = new System.Drawing.Point(39, 21);
+            this.ctbX.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.ctbX.Name = "ctbX";
+            this.ctbX.ReadOnly = true;
+            this.ctbX.Size = new System.Drawing.Size(149, 20);
+            this.ctbX.TabIndex = 5;
             // 
             // label6
             // 
@@ -247,27 +209,27 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Y:";
             // 
-            // cyTextBox
+            // ctbY
             // 
-            this.cyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctbY.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cyTextBox.Location = new System.Drawing.Point(39, 47);
-            this.cyTextBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.cyTextBox.Name = "cyTextBox";
-            this.cyTextBox.ReadOnly = true;
-            this.cyTextBox.Size = new System.Drawing.Size(149, 20);
-            this.cyTextBox.TabIndex = 8;
+            this.ctbY.Location = new System.Drawing.Point(39, 47);
+            this.ctbY.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.ctbY.Name = "ctbY";
+            this.ctbY.ReadOnly = true;
+            this.ctbY.Size = new System.Drawing.Size(149, 20);
+            this.ctbY.TabIndex = 6;
             // 
-            // czTextBox
+            // ctbZ
             // 
-            this.czTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.ctbZ.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.czTextBox.Location = new System.Drawing.Point(39, 73);
-            this.czTextBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.czTextBox.Name = "czTextBox";
-            this.czTextBox.ReadOnly = true;
-            this.czTextBox.Size = new System.Drawing.Size(149, 20);
-            this.czTextBox.TabIndex = 9;
+            this.ctbZ.Location = new System.Drawing.Point(39, 73);
+            this.ctbZ.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.ctbZ.Name = "ctbZ";
+            this.ctbZ.ReadOnly = true;
+            this.ctbZ.Size = new System.Drawing.Size(149, 20);
+            this.ctbZ.TabIndex = 7;
             // 
             // label7
             // 
@@ -280,55 +242,72 @@
             this.label7.Size = new System.Drawing.Size(400, 2);
             this.label7.TabIndex = 13;
             // 
-            // mainTabControl
+            // ctcMain
             // 
-            this.mainTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ctcMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mainTabControl.Controls.Add(this.generalTabPage);
-            this.mainTabControl.Controls.Add(this.childrenTabPage);
-            this.mainTabControl.Controls.Add(this.dsgvarTabPage);
-            this.mainTabControl.Controls.Add(this.dynamicsTabPage);
-            this.mainTabControl.Location = new System.Drawing.Point(5, 5);
-            this.mainTabControl.Margin = new System.Windows.Forms.Padding(0);
-            this.mainTabControl.Name = "mainTabControl";
-            this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(424, 401);
-            this.mainTabControl.TabIndex = 14;
-            this.mainTabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.mainTabControl_Selected);
+            this.ctcMain.Controls.Add(this.ctpGeneral);
+            this.ctcMain.Controls.Add(this.ctpChildren);
+            this.ctcMain.Controls.Add(this.ctpDsgVars);
+            this.ctcMain.Controls.Add(this.ctpDynamics);
+            this.ctcMain.Location = new System.Drawing.Point(5, 5);
+            this.ctcMain.Margin = new System.Windows.Forms.Padding(0);
+            this.ctcMain.Name = "ctcMain";
+            this.ctcMain.SelectedIndex = 0;
+            this.ctcMain.Size = new System.Drawing.Size(424, 401);
+            this.ctcMain.TabIndex = 14;
+            this.ctcMain.Selected += new System.Windows.Forms.TabControlEventHandler(this.ctcMain_Selected);
             // 
-            // generalTabPage
+            // ctpGeneral
             // 
-            this.generalTabPage.Controls.Add(this.typeTextBox);
-            this.generalTabPage.Controls.Add(this.label8);
-            this.generalTabPage.Controls.Add(this.ptrTextBox);
-            this.generalTabPage.Controls.Add(this.label9);
-            this.generalTabPage.Controls.Add(this.groupBox1);
-            this.generalTabPage.Controls.Add(this.label7);
-            this.generalTabPage.Controls.Add(this.label1);
-            this.generalTabPage.Controls.Add(this.label3);
-            this.generalTabPage.Controls.Add(this.familyTextBox);
-            this.generalTabPage.Controls.Add(this.label2);
-            this.generalTabPage.Controls.Add(this.modelTextBox);
-            this.generalTabPage.Controls.Add(this.instanceTextBox);
-            this.generalTabPage.Location = new System.Drawing.Point(4, 22);
-            this.generalTabPage.Name = "generalTabPage";
-            this.generalTabPage.Padding = new System.Windows.Forms.Padding(5);
-            this.generalTabPage.Size = new System.Drawing.Size(416, 375);
-            this.generalTabPage.TabIndex = 0;
-            this.generalTabPage.Text = "General";
-            this.generalTabPage.UseVisualStyleBackColor = true;
+            this.ctpGeneral.Controls.Add(this.unloadedWarningLabel);
+            this.ctpGeneral.Controls.Add(this.ctbType);
+            this.ctpGeneral.Controls.Add(this.label8);
+            this.ctpGeneral.Controls.Add(this.ctbAddress);
+            this.ctpGeneral.Controls.Add(this.label9);
+            this.ctpGeneral.Controls.Add(this.groupBox1);
+            this.ctpGeneral.Controls.Add(this.label7);
+            this.ctpGeneral.Controls.Add(this.label1);
+            this.ctpGeneral.Controls.Add(this.label3);
+            this.ctpGeneral.Controls.Add(this.ctbFamily);
+            this.ctpGeneral.Controls.Add(this.label2);
+            this.ctpGeneral.Controls.Add(this.ctbModel);
+            this.ctpGeneral.Controls.Add(this.ctbInstance);
+            this.ctpGeneral.Location = new System.Drawing.Point(4, 22);
+            this.ctpGeneral.Name = "ctpGeneral";
+            this.ctpGeneral.Padding = new System.Windows.Forms.Padding(5);
+            this.ctpGeneral.Size = new System.Drawing.Size(416, 375);
+            this.ctpGeneral.TabIndex = 0;
+            this.ctpGeneral.Text = "General";
+            this.ctpGeneral.UseVisualStyleBackColor = true;
             // 
-            // typeTextBox
+            // unloadedWarningLabel
             // 
-            this.typeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.unloadedWarningLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.typeTextBox.Location = new System.Drawing.Point(55, 108);
-            this.typeTextBox.Margin = new System.Windows.Forms.Padding(10, 3, 5, 3);
-            this.typeTextBox.Name = "typeTextBox";
-            this.typeTextBox.ReadOnly = true;
-            this.typeTextBox.Size = new System.Drawing.Size(142, 20);
-            this.typeTextBox.TabIndex = 15;
+            this.unloadedWarningLabel.AutoEllipsis = true;
+            this.unloadedWarningLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.unloadedWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.unloadedWarningLabel.Location = new System.Drawing.Point(8, 318);
+            this.unloadedWarningLabel.Margin = new System.Windows.Forms.Padding(8);
+            this.unloadedWarningLabel.Name = "unloadedWarningLabel";
+            this.unloadedWarningLabel.Size = new System.Drawing.Size(400, 44);
+            this.unloadedWarningLabel.TabIndex = 14;
+            this.unloadedWarningLabel.Text = "The superobject pointer has changed or the object was unloaded.";
+            this.unloadedWarningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.unloadedWarningLabel.Visible = false;
+            // 
+            // ctbType
+            // 
+            this.ctbType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctbType.Location = new System.Drawing.Point(55, 108);
+            this.ctbType.Margin = new System.Windows.Forms.Padding(10, 3, 5, 3);
+            this.ctbType.Name = "ctbType";
+            this.ctbType.ReadOnly = true;
+            this.ctbType.Size = new System.Drawing.Size(142, 20);
+            this.ctbType.TabIndex = 3;
             // 
             // label8
             // 
@@ -339,15 +318,15 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Type:";
             // 
-            // ptrTextBox
+            // ctbAddress
             // 
-            this.ptrTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ptrTextBox.Location = new System.Drawing.Point(266, 108);
-            this.ptrTextBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.ptrTextBox.Name = "ptrTextBox";
-            this.ptrTextBox.ReadOnly = true;
-            this.ptrTextBox.Size = new System.Drawing.Size(142, 20);
-            this.ptrTextBox.TabIndex = 16;
+            this.ctbAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ctbAddress.Location = new System.Drawing.Point(266, 108);
+            this.ctbAddress.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.ctbAddress.Name = "ctbAddress";
+            this.ctbAddress.ReadOnly = true;
+            this.ctbAddress.Size = new System.Drawing.Size(142, 20);
+            this.ctbAddress.TabIndex = 4;
             // 
             // label9
             // 
@@ -359,64 +338,64 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Address:";
             // 
-            // childrenTabPage
+            // ctpChildren
             // 
-            this.childrenTabPage.Controls.Add(this.childrenTreeView);
-            this.childrenTabPage.Location = new System.Drawing.Point(4, 22);
-            this.childrenTabPage.Name = "childrenTabPage";
-            this.childrenTabPage.Padding = new System.Windows.Forms.Padding(5);
-            this.childrenTabPage.Size = new System.Drawing.Size(416, 375);
-            this.childrenTabPage.TabIndex = 1;
-            this.childrenTabPage.Text = "Children";
-            this.childrenTabPage.UseVisualStyleBackColor = true;
+            this.ctpChildren.Controls.Add(this.ctvChildren);
+            this.ctpChildren.Location = new System.Drawing.Point(4, 22);
+            this.ctpChildren.Name = "ctpChildren";
+            this.ctpChildren.Padding = new System.Windows.Forms.Padding(5);
+            this.ctpChildren.Size = new System.Drawing.Size(416, 375);
+            this.ctpChildren.TabIndex = 1;
+            this.ctpChildren.Text = "Children";
+            this.ctpChildren.UseVisualStyleBackColor = true;
             // 
-            // childrenTreeView
+            // ctvChildren
             // 
-            this.childrenTreeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ctvChildren.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.childrenTreeView.Location = new System.Drawing.Point(8, 8);
-            this.childrenTreeView.Name = "childrenTreeView";
-            this.childrenTreeView.ShowPlusMinus = false;
-            this.childrenTreeView.Size = new System.Drawing.Size(400, 359);
-            this.childrenTreeView.TabIndex = 0;
-            this.childrenTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.childrenTreeView_NodeMouseClick);
-            this.childrenTreeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.childrenTreeView_NodeMouseDoubleClick);
+            this.ctvChildren.Location = new System.Drawing.Point(8, 8);
+            this.ctvChildren.Name = "ctvChildren";
+            this.ctvChildren.ShowPlusMinus = false;
+            this.ctvChildren.Size = new System.Drawing.Size(400, 359);
+            this.ctvChildren.TabIndex = 0;
+            this.ctvChildren.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.ctvChildren_NodeMouseClick);
+            this.ctvChildren.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.ctvChildren_NodeMouseDoubleClick);
             // 
-            // dsgvarTabPage
+            // ctpDsgVars
             // 
-            this.dsgvarTabPage.Controls.Add(this.dsgvarListView);
-            this.dsgvarTabPage.Location = new System.Drawing.Point(4, 22);
-            this.dsgvarTabPage.Name = "dsgvarTabPage";
-            this.dsgvarTabPage.Padding = new System.Windows.Forms.Padding(5);
-            this.dsgvarTabPage.Size = new System.Drawing.Size(416, 375);
-            this.dsgvarTabPage.TabIndex = 2;
-            this.dsgvarTabPage.Text = "DsgVars";
-            this.dsgvarTabPage.UseVisualStyleBackColor = true;
+            this.ctpDsgVars.Controls.Add(this.clvDsgVars);
+            this.ctpDsgVars.Location = new System.Drawing.Point(4, 22);
+            this.ctpDsgVars.Name = "ctpDsgVars";
+            this.ctpDsgVars.Padding = new System.Windows.Forms.Padding(5);
+            this.ctpDsgVars.Size = new System.Drawing.Size(416, 375);
+            this.ctpDsgVars.TabIndex = 2;
+            this.ctpDsgVars.Text = "DsgVars";
+            this.ctpDsgVars.UseVisualStyleBackColor = true;
             // 
-            // dsgvarListView
+            // clvDsgVars
             // 
-            this.dsgvarListView.AllowColumnReorder = true;
-            this.dsgvarListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.clvDsgVars.AllowColumnReorder = true;
+            this.clvDsgVars.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dsgvarListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clvDsgVars.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.typeColumnHeader,
             this.idxColumnHeader,
             this.valueColumnHeader,
             this.initValueColumnHeader,
             this.modelInitColumnHeader});
-            this.dsgvarListView.FullRowSelect = true;
-            this.dsgvarListView.GridLines = true;
-            this.dsgvarListView.HideSelection = false;
-            this.dsgvarListView.Location = new System.Drawing.Point(8, 8);
-            this.dsgvarListView.MultiSelect = false;
-            this.dsgvarListView.Name = "dsgvarListView";
-            this.dsgvarListView.Size = new System.Drawing.Size(400, 359);
-            this.dsgvarListView.TabIndex = 0;
-            this.dsgvarListView.UseCompatibleStateImageBehavior = false;
-            this.dsgvarListView.View = System.Windows.Forms.View.Details;
-            this.dsgvarListView.ItemActivate += new System.EventHandler(this.dsgvarListView_ItemActivate);
+            this.clvDsgVars.FullRowSelect = true;
+            this.clvDsgVars.GridLines = true;
+            this.clvDsgVars.HideSelection = false;
+            this.clvDsgVars.Location = new System.Drawing.Point(8, 8);
+            this.clvDsgVars.MultiSelect = false;
+            this.clvDsgVars.Name = "clvDsgVars";
+            this.clvDsgVars.Size = new System.Drawing.Size(400, 359);
+            this.clvDsgVars.TabIndex = 0;
+            this.clvDsgVars.UseCompatibleStateImageBehavior = false;
+            this.clvDsgVars.View = System.Windows.Forms.View.Details;
+            this.clvDsgVars.ItemActivate += new System.EventHandler(this.clvDsgVars_ItemActivate);
             // 
             // typeColumnHeader
             // 
@@ -443,18 +422,77 @@
             this.modelInitColumnHeader.Text = "Model Init";
             this.modelInitColumnHeader.Width = 100;
             // 
-            // dynamicsTabPage
+            // ctpDynamics
             // 
-            this.dynamicsTabPage.Controls.Add(this.tabControl1);
-            this.dynamicsTabPage.Controls.Add(this.label10);
-            this.dynamicsTabPage.Controls.Add(this.dynamicsTypeSelection);
-            this.dynamicsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.dynamicsTabPage.Name = "dynamicsTabPage";
-            this.dynamicsTabPage.Padding = new System.Windows.Forms.Padding(8);
-            this.dynamicsTabPage.Size = new System.Drawing.Size(416, 375);
-            this.dynamicsTabPage.TabIndex = 3;
-            this.dynamicsTabPage.Text = "Dynamics";
-            this.dynamicsTabPage.UseVisualStyleBackColor = true;
+            this.ctpDynamics.Controls.Add(this.label11);
+            this.ctpDynamics.Controls.Add(this.panel1);
+            this.ctpDynamics.Controls.Add(this.tabControl1);
+            this.ctpDynamics.Controls.Add(this.label10);
+            this.ctpDynamics.Location = new System.Drawing.Point(4, 22);
+            this.ctpDynamics.Name = "ctpDynamics";
+            this.ctpDynamics.Padding = new System.Windows.Forms.Padding(5);
+            this.ctpDynamics.Size = new System.Drawing.Size(416, 375);
+            this.ctpDynamics.TabIndex = 3;
+            this.ctpDynamics.Text = "Dynamics";
+            this.ctpDynamics.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label11.Location = new System.Drawing.Point(8, 36);
+            this.label11.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(400, 2);
+            this.label11.TabIndex = 14;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.crbDynamTypeComplex);
+            this.panel1.Controls.Add(this.crbDynamTypeAdvanced);
+            this.panel1.Controls.Add(this.crbDynamTypeBase);
+            this.panel1.Location = new System.Drawing.Point(111, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(297, 26);
+            this.panel1.TabIndex = 1;
+            // 
+            // crbDynamTypeComplex
+            // 
+            this.crbDynamTypeComplex.AutoSize = true;
+            this.crbDynamTypeComplex.Location = new System.Drawing.Point(156, 3);
+            this.crbDynamTypeComplex.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
+            this.crbDynamTypeComplex.Name = "crbDynamTypeComplex";
+            this.crbDynamTypeComplex.Size = new System.Drawing.Size(65, 17);
+            this.crbDynamTypeComplex.TabIndex = 2;
+            this.crbDynamTypeComplex.TabStop = true;
+            this.crbDynamTypeComplex.Text = "Complex";
+            this.crbDynamTypeComplex.UseVisualStyleBackColor = true;
+            // 
+            // crbDynamTypeAdvanced
+            // 
+            this.crbDynamTypeAdvanced.AutoSize = true;
+            this.crbDynamTypeAdvanced.Location = new System.Drawing.Point(67, 3);
+            this.crbDynamTypeAdvanced.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
+            this.crbDynamTypeAdvanced.Name = "crbDynamTypeAdvanced";
+            this.crbDynamTypeAdvanced.Size = new System.Drawing.Size(74, 17);
+            this.crbDynamTypeAdvanced.TabIndex = 1;
+            this.crbDynamTypeAdvanced.TabStop = true;
+            this.crbDynamTypeAdvanced.Text = "Advanced";
+            this.crbDynamTypeAdvanced.UseVisualStyleBackColor = true;
+            // 
+            // crbDynamTypeBase
+            // 
+            this.crbDynamTypeBase.AutoSize = true;
+            this.crbDynamTypeBase.Location = new System.Drawing.Point(3, 3);
+            this.crbDynamTypeBase.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
+            this.crbDynamTypeBase.Name = "crbDynamTypeBase";
+            this.crbDynamTypeBase.Size = new System.Drawing.Size(49, 17);
+            this.crbDynamTypeBase.TabIndex = 0;
+            this.crbDynamTypeBase.TabStop = true;
+            this.crbDynamTypeBase.Text = "Base";
+            this.crbDynamTypeBase.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -464,57 +502,39 @@
             this.tabControl1.Controls.Add(this.tabPageDynamicsBase);
             this.tabControl1.Controls.Add(this.tabPageDynamicsAdvanced);
             this.tabControl1.Controls.Add(this.tabPageDynamicsComplex);
-            this.tabControl1.Location = new System.Drawing.Point(11, 37);
+            this.tabControl1.Location = new System.Drawing.Point(8, 46);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(394, 288);
-            this.tabControl1.TabIndex = 2;
+            this.tabControl1.Size = new System.Drawing.Size(400, 321);
+            this.tabControl1.TabIndex = 3;
             // 
             // tabPageDynamicsBase
             // 
-            this.tabPageDynamicsBase.Controls.Add(this.listViewBaseDynamics);
+            this.tabPageDynamicsBase.Controls.Add(this.clvDynamBase);
             this.tabPageDynamicsBase.Location = new System.Drawing.Point(4, 22);
             this.tabPageDynamicsBase.Name = "tabPageDynamicsBase";
             this.tabPageDynamicsBase.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDynamicsBase.Size = new System.Drawing.Size(386, 262);
+            this.tabPageDynamicsBase.Size = new System.Drawing.Size(392, 295);
             this.tabPageDynamicsBase.TabIndex = 0;
             this.tabPageDynamicsBase.Text = "Base";
             this.tabPageDynamicsBase.UseVisualStyleBackColor = true;
             // 
-            // listViewBaseDynamics
+            // clvDynamBase
             // 
-            this.listViewBaseDynamics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.clvDynamBase.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewBaseDynamics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clvDynamBase.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderKeys,
             this.columnHeaderValues});
-            this.listViewBaseDynamics.GridLines = true;
-            this.listViewBaseDynamics.HideSelection = false;
-            this.listViewBaseDynamics.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
-            listViewItem5,
-            listViewItem6,
-            listViewItem7,
-            listViewItem8,
-            listViewItem9,
-            listViewItem10,
-            listViewItem11,
-            listViewItem12,
-            listViewItem13,
-            listViewItem14,
-            listViewItem15,
-            listViewItem16,
-            listViewItem17});
-            this.listViewBaseDynamics.Location = new System.Drawing.Point(6, 6);
-            this.listViewBaseDynamics.Name = "listViewBaseDynamics";
-            this.listViewBaseDynamics.Size = new System.Drawing.Size(374, 250);
-            this.listViewBaseDynamics.TabIndex = 0;
-            this.listViewBaseDynamics.UseCompatibleStateImageBehavior = false;
-            this.listViewBaseDynamics.View = System.Windows.Forms.View.Details;
+            this.clvDynamBase.GridLines = true;
+            this.clvDynamBase.HideSelection = false;
+            this.clvDynamBase.Location = new System.Drawing.Point(6, 6);
+            this.clvDynamBase.Name = "clvDynamBase";
+            this.clvDynamBase.Size = new System.Drawing.Size(380, 283);
+            this.clvDynamBase.TabIndex = 0;
+            this.clvDynamBase.UseCompatibleStateImageBehavior = false;
+            this.clvDynamBase.View = System.Windows.Forms.View.Details;
             // 
             // columnHeaderKeys
             // 
@@ -528,50 +548,31 @@
             // 
             // tabPageDynamicsAdvanced
             // 
-            this.tabPageDynamicsAdvanced.Controls.Add(this.listViewAdvancedDynamics);
+            this.tabPageDynamicsAdvanced.Controls.Add(this.clvDynamAdvanced);
             this.tabPageDynamicsAdvanced.Location = new System.Drawing.Point(4, 22);
             this.tabPageDynamicsAdvanced.Name = "tabPageDynamicsAdvanced";
             this.tabPageDynamicsAdvanced.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDynamicsAdvanced.Size = new System.Drawing.Size(386, 262);
+            this.tabPageDynamicsAdvanced.Size = new System.Drawing.Size(392, 295);
             this.tabPageDynamicsAdvanced.TabIndex = 1;
             this.tabPageDynamicsAdvanced.Text = "Advanced";
             this.tabPageDynamicsAdvanced.UseVisualStyleBackColor = true;
             // 
-            // listViewAdvancedDynamics
+            // clvDynamAdvanced
             // 
-            this.listViewAdvancedDynamics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.clvDynamAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewAdvancedDynamics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clvDynamAdvanced.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listViewAdvancedDynamics.GridLines = true;
-            this.listViewAdvancedDynamics.HideSelection = false;
-            this.listViewAdvancedDynamics.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem18,
-            listViewItem19,
-            listViewItem20,
-            listViewItem21,
-            listViewItem22,
-            listViewItem23,
-            listViewItem24,
-            listViewItem25,
-            listViewItem26,
-            listViewItem27,
-            listViewItem28,
-            listViewItem29,
-            listViewItem30,
-            listViewItem31,
-            listViewItem32,
-            listViewItem33,
-            listViewItem34,
-            listViewItem35});
-            this.listViewAdvancedDynamics.Location = new System.Drawing.Point(6, 6);
-            this.listViewAdvancedDynamics.Name = "listViewAdvancedDynamics";
-            this.listViewAdvancedDynamics.Size = new System.Drawing.Size(374, 250);
-            this.listViewAdvancedDynamics.TabIndex = 1;
-            this.listViewAdvancedDynamics.UseCompatibleStateImageBehavior = false;
-            this.listViewAdvancedDynamics.View = System.Windows.Forms.View.Details;
+            this.clvDynamAdvanced.GridLines = true;
+            this.clvDynamAdvanced.HideSelection = false;
+            this.clvDynamAdvanced.Location = new System.Drawing.Point(6, 6);
+            this.clvDynamAdvanced.Name = "clvDynamAdvanced";
+            this.clvDynamAdvanced.Size = new System.Drawing.Size(380, 283);
+            this.clvDynamAdvanced.TabIndex = 1;
+            this.clvDynamAdvanced.UseCompatibleStateImageBehavior = false;
+            this.clvDynamAdvanced.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -585,40 +586,31 @@
             // 
             // tabPageDynamicsComplex
             // 
-            this.tabPageDynamicsComplex.Controls.Add(this.listViewComplexDynamics);
+            this.tabPageDynamicsComplex.Controls.Add(this.clvDynamComplex);
             this.tabPageDynamicsComplex.Location = new System.Drawing.Point(4, 22);
             this.tabPageDynamicsComplex.Name = "tabPageDynamicsComplex";
             this.tabPageDynamicsComplex.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDynamicsComplex.Size = new System.Drawing.Size(386, 262);
+            this.tabPageDynamicsComplex.Size = new System.Drawing.Size(392, 295);
             this.tabPageDynamicsComplex.TabIndex = 2;
             this.tabPageDynamicsComplex.Text = "Complex";
             this.tabPageDynamicsComplex.UseVisualStyleBackColor = true;
             // 
-            // listViewComplexDynamics
+            // clvDynamComplex
             // 
-            this.listViewComplexDynamics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.clvDynamComplex.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listViewComplexDynamics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.clvDynamComplex.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader3,
             this.columnHeader4});
-            this.listViewComplexDynamics.GridLines = true;
-            this.listViewComplexDynamics.HideSelection = false;
-            this.listViewComplexDynamics.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem36,
-            listViewItem37,
-            listViewItem38,
-            listViewItem39,
-            listViewItem40,
-            listViewItem41,
-            listViewItem42,
-            listViewItem43});
-            this.listViewComplexDynamics.Location = new System.Drawing.Point(6, 6);
-            this.listViewComplexDynamics.Name = "listViewComplexDynamics";
-            this.listViewComplexDynamics.Size = new System.Drawing.Size(374, 250);
-            this.listViewComplexDynamics.TabIndex = 2;
-            this.listViewComplexDynamics.UseCompatibleStateImageBehavior = false;
-            this.listViewComplexDynamics.View = System.Windows.Forms.View.Details;
+            this.clvDynamComplex.GridLines = true;
+            this.clvDynamComplex.HideSelection = false;
+            this.clvDynamComplex.Location = new System.Drawing.Point(6, 6);
+            this.clvDynamComplex.Name = "clvDynamComplex";
+            this.clvDynamComplex.Size = new System.Drawing.Size(380, 283);
+            this.clvDynamComplex.TabIndex = 2;
+            this.clvDynamComplex.UseCompatibleStateImageBehavior = false;
+            this.clvDynamComplex.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader3
             // 
@@ -633,47 +625,18 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 13);
+            this.label10.Location = new System.Drawing.Point(8, 10);
+            this.label10.Margin = new System.Windows.Forms.Padding(3, 0, 20, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 13);
+            this.label10.Size = new System.Drawing.Size(83, 13);
             this.label10.TabIndex = 1;
-            this.label10.Text = "Dynamics Type";
-            // 
-            // dynamicsTypeSelection
-            // 
-            this.dynamicsTypeSelection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dynamicsTypeSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.dynamicsTypeSelection.FormattingEnabled = true;
-            this.dynamicsTypeSelection.Items.AddRange(new object[] {
-            "Base",
-            "Advanced",
-            "Complex"});
-            this.dynamicsTypeSelection.Location = new System.Drawing.Point(164, 10);
-            this.dynamicsTypeSelection.Name = "dynamicsTypeSelection";
-            this.dynamicsTypeSelection.Size = new System.Drawing.Size(237, 21);
-            this.dynamicsTypeSelection.TabIndex = 0;
-            this.dynamicsTypeSelection.SelectedIndexChanged += new System.EventHandler(this.dynamicsTypeSelection_SelectedIndexChanged);
-            // 
-            // unloadedWarningLabel
-            // 
-            this.unloadedWarningLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.unloadedWarningLabel.AutoEllipsis = true;
-            this.unloadedWarningLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.unloadedWarningLabel.Location = new System.Drawing.Point(9, 363);
-            this.unloadedWarningLabel.Margin = new System.Windows.Forms.Padding(8);
-            this.unloadedWarningLabel.Name = "unloadedWarningLabel";
-            this.unloadedWarningLabel.Size = new System.Drawing.Size(416, 39);
-            this.unloadedWarningLabel.TabIndex = 14;
-            this.unloadedWarningLabel.Text = "The superobject pointer has changed or the object was unloaded.";
-            this.unloadedWarningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.unloadedWarningLabel.Visible = false;
+            this.label10.Text = "Dynamics Type:";
             // 
             // toolStrip
             // 
             this.toolStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.spoToolStripButton});
+            this.ctsbSpo});
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.ShowItemToolTips = false;
@@ -682,17 +645,17 @@
             this.toolStrip.Text = "toolStrip";
             this.toolStrip.Visible = false;
             // 
-            // spoToolStripButton
+            // ctsbSpo
             // 
-            this.spoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.spoToolStripButton.Enabled = false;
-            this.spoToolStripButton.Image = global::R2ObjView.Resources.ImgSpo;
-            this.spoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.spoToolStripButton.MergeAction = System.Windows.Forms.MergeAction.Replace;
-            this.spoToolStripButton.Name = "spoToolStripButton";
-            this.spoToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.spoToolStripButton.Text = "Superobject Properties";
-            this.spoToolStripButton.Click += new System.EventHandler(this.spoToolStripButton_Click);
+            this.ctsbSpo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ctsbSpo.Enabled = false;
+            this.ctsbSpo.Image = global::R2ObjView.Resources.ImgSpo;
+            this.ctsbSpo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ctsbSpo.MergeAction = System.Windows.Forms.MergeAction.Replace;
+            this.ctsbSpo.Name = "ctsbSpo";
+            this.ctsbSpo.Size = new System.Drawing.Size(23, 22);
+            this.ctsbSpo.Text = "Superobject Properties";
+            this.ctsbSpo.Click += new System.EventHandler(this.ctsbSpo_Click);
             // 
             // SpoForm
             // 
@@ -700,20 +663,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 411);
             this.Controls.Add(this.toolStrip);
-            this.Controls.Add(this.unloadedWarningLabel);
-            this.Controls.Add(this.mainTabControl);
+            this.Controls.Add(this.ctcMain);
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "SpoForm";
             this.Text = "Bepis - Properties";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.mainTabControl.ResumeLayout(false);
-            this.generalTabPage.ResumeLayout(false);
-            this.generalTabPage.PerformLayout();
-            this.childrenTabPage.ResumeLayout(false);
-            this.dsgvarTabPage.ResumeLayout(false);
-            this.dynamicsTabPage.ResumeLayout(false);
-            this.dynamicsTabPage.PerformLayout();
+            this.ctcMain.ResumeLayout(false);
+            this.ctpGeneral.ResumeLayout(false);
+            this.ctpGeneral.PerformLayout();
+            this.ctpChildren.ResumeLayout(false);
+            this.ctpDsgVars.ResumeLayout(false);
+            this.ctpDynamics.ResumeLayout(false);
+            this.ctpDynamics.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPageDynamicsBase.ResumeLayout(false);
             this.tabPageDynamicsAdvanced.ResumeLayout(false);
@@ -727,53 +691,57 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox familyTextBox;
-        private System.Windows.Forms.TextBox modelTextBox;
-        private System.Windows.Forms.TextBox instanceTextBox;
+        private System.Windows.Forms.TextBox ctbFamily;
+        private System.Windows.Forms.TextBox ctbModel;
+        private System.Windows.Forms.TextBox ctbInstance;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox cxTextBox;
+        private System.Windows.Forms.TextBox ctbX;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox cyTextBox;
-        private System.Windows.Forms.TextBox czTextBox;
+        private System.Windows.Forms.TextBox ctbY;
+        private System.Windows.Forms.TextBox ctbZ;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TabControl mainTabControl;
-        private System.Windows.Forms.TabPage generalTabPage;
-        private System.Windows.Forms.TabPage childrenTabPage;
-        private System.Windows.Forms.TreeView childrenTreeView;
-        private System.Windows.Forms.TabPage dsgvarTabPage;
-        private System.Windows.Forms.TabPage dynamicsTabPage;
+        private System.Windows.Forms.TabControl ctcMain;
+        private System.Windows.Forms.TabPage ctpGeneral;
+        private System.Windows.Forms.TabPage ctpChildren;
+        private System.Windows.Forms.TreeView ctvChildren;
+        private System.Windows.Forms.TabPage ctpDsgVars;
+        private System.Windows.Forms.TabPage ctpDynamics;
         private System.Windows.Forms.Label unloadedWarningLabel;
-        private System.Windows.Forms.TextBox typeTextBox;
+        private System.Windows.Forms.TextBox ctbType;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton spoToolStripButton;
+        private System.Windows.Forms.ToolStripButton ctsbSpo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox ptrTextBox;
-        private System.Windows.Forms.ListView dsgvarListView;
+        private System.Windows.Forms.TextBox ctbAddress;
+        private System.Windows.Forms.ListView clvDsgVars;
         private System.Windows.Forms.ColumnHeader idxColumnHeader;
         private System.Windows.Forms.ColumnHeader typeColumnHeader;
         private System.Windows.Forms.ColumnHeader valueColumnHeader;
         private System.Windows.Forms.ColumnHeader initValueColumnHeader;
         private System.Windows.Forms.ColumnHeader modelInitColumnHeader;
-        private System.Windows.Forms.ComboBox dynamicsTypeSelection;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageDynamicsBase;
         private System.Windows.Forms.TabPage tabPageDynamicsAdvanced;
         private System.Windows.Forms.TabPage tabPageDynamicsComplex;
-        private System.Windows.Forms.ListView listViewBaseDynamics;
+        private System.Windows.Forms.ListView clvDynamBase;
         private System.Windows.Forms.ColumnHeader columnHeaderKeys;
         private System.Windows.Forms.ColumnHeader columnHeaderValues;
-        private System.Windows.Forms.ListView listViewAdvancedDynamics;
+        private System.Windows.Forms.ListView clvDynamAdvanced;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ListView listViewComplexDynamics;
+        private System.Windows.Forms.ListView clvDynamComplex;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton crbDynamTypeBase;
+        private System.Windows.Forms.RadioButton crbDynamTypeComplex;
+        private System.Windows.Forms.RadioButton crbDynamTypeAdvanced;
+        private System.Windows.Forms.Label label11;
     }
 }

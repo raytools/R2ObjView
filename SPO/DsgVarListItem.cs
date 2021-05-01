@@ -1,10 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using Ray2Mod.Components.Types;
+﻿using System.Windows.Forms;
 using Ray2Mod.Game.Structs;
-using Ray2Mod.Game.Structs.AI;
 
-namespace R2ObjView
+namespace R2ObjView.SPO
 {
     public unsafe class DsgVarListItem
     {

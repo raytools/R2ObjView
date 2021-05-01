@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using Ray2Mod.Game.Structs;
 using Ray2Mod.Game.Structs.MathStructs;
 
-namespace R2ObjView
+namespace R2ObjView.SPO
 {
     public unsafe class DsgVarListManager
     {
@@ -25,6 +25,20 @@ namespace R2ObjView
 
                 return true;
             };
+        }
+
+        public void UpdateAll()
+        {
+            foreach (DsgVarListItem item in DsgVarList)
+            {
+                string valueText = GetDsgVarString(item.Type, item.Value);
+                string initValueText = GetDsgVarString(item.Type, item.InitValue);
+                string modelInitText = GetDsgVarString(item.Type, item.ModelValue);
+
+                item.ListItem.SubItems[2].Text = valueText;
+                item.ListItem.SubItems[3].Text = initValueText;
+                item.ListItem.SubItems[4].Text = modelInitText;
+            }
         }
 
         public void InitIcons(ListView list)

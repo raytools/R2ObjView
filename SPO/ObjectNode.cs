@@ -2,7 +2,7 @@
 using Ray2Mod.Components.Types;
 using Ray2Mod.Game.Structs.SPO;
 
-namespace R2ObjView
+namespace R2ObjView.SPO
 {
     public class ObjectNode
     {

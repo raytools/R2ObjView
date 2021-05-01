@@ -2,7 +2,7 @@
 
 namespace R2ObjView
 {
-    public partial class DetailsGridForm : Form
+    public partial class DetailsGridForm : ChildFrame
     {
         public DetailsGridForm(string title)
         {
@@ -23,6 +23,17 @@ namespace R2ObjView
         public void AddItem(params ListViewItem[] items)
         {
             listView.Items.AddRange(items);
+        }
+
+        protected override void RefreshData()
+        {
+
+        }
+
+        protected override void OnLevelChanged(string levelName)
+        {
+            DisableRefresh();
+            DisableLevelChanged();
         }
     }
 }
